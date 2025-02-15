@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="1202.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.user.LoginFormController">
+   <children>
+      <ImageView fitHeight="554.0" fitWidth="526.0" layoutX="601.0" layoutY="-89.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="648.0" layoutY="269.0" prefHeight="54.0" prefWidth="98.0" style="-fx-border-color: purple;" text="Login" textFill="#331848">
+         <font>
+            <Font name="Cambria" size="38.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
+      <ImageView fitHeight="761.0" fitWidth="536.0" layoutX="-8.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/bg-cloth.jpg" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="txtEmail" focusColor="#9a26d4" layoutX="751.0" layoutY="401.0" prefHeight="36.0" prefWidth="247.0" promptText="Enter Email" style="-fx-background-color: f5e9fb;" unFocusColor="#3f1b51" />
+      <JFXPasswordField fx:id="txtPassword" focusColor="#9a26d4" layoutX="751.0" layoutY="475.0" prefHeight="36.0" prefWidth="247.0" promptText="Enter password" style="-fx-background-color: f5e9fb;" unFocusColor="#3f1b51" />
+      <Label layoutX="740.0" layoutY="381.0" text="Email" textFill="#331848">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="740.0" layoutY="454.0" text="Password" textFill="#331848">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="648.0" layoutY="324.0" text="A user-friendly POS system for managing sales, inventory and customer orders efficiently" textFill="#331848" />
+      <Label layoutX="644.0" layoutY="342.0" text=" in the clothing store" textFill="#331848" />
+      <JFXButton layoutX="751.0" layoutY="557.0" onAction="#btnSignInOnAction" prefHeight="30.0" prefWidth="247.0" style="-fx-background-color: #1f082a; -fx-background-radius: 50px;" text="Sign in" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="760.0" layoutY="589.0" onMouseClicked="#btnForgotPasswordOnAction" text="Forgot Password ?" textFill="#0080f5">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Label>
+      <JFXButton layoutX="751.0" layoutY="619.0" onAction="#btnregisterOnACTION" prefHeight="30.0" prefWidth="247.0" style="-fx-background-color: #1f082a; -fx-background-radius: 50px;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="787.0" layoutY="724.0" text="Copyright © 2025 Clothing Store" textFill="#3e3e3e" />
+   </children>
+</AnchorPane>

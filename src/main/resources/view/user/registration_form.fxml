@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="1202.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.user.RegisterFormController">
+   <children>
+      <ImageView fitHeight="349.0" fitWidth="396.0" layoutX="691.0" layoutY="-83.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="764.0" layoutY="172.4" prefHeight="54.0" prefWidth="202.0" style="-fx-border-color: purple;" text="Registration" textFill="#492369" AnchorPane.topAnchor="172.4">
+         <font>
+            <Font name="Cambria" size="38.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="761.0" fitWidth="536.0" layoutX="-8.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/bg-cloth.jpg" />
+         </image>
+      </ImageView>
+      <JFXTextField fx:id="txtEmail" focusColor="#9a26d4" layoutX="902.0" layoutY="333.0" prefHeight="36.0" prefWidth="247.0" promptText="Enter Email" style="-fx-background-color: f5e9fb;" unFocusColor="#3f1b51" />
+      <JFXPasswordField fx:id="txtPassword" focusColor="#9a26d4" layoutX="751.0" layoutY="475.0" prefHeight="36.0" prefWidth="247.0" promptText="Enter password" style="-fx-background-color: f5e9fb;" unFocusColor="#3f1b51" />
+      <Label layoutX="890.0" layoutY="313.0" text="Email" textFill="#331848">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="740.0" layoutY="454.0" text="Password" textFill="#331848">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="751.0" layoutY="641.0" onAction="#btnRegisterOnAction" prefHeight="30.0" prefWidth="247.0" style="-fx-background-color: #1f082a; -fx-background-radius: 50px;" text="Register" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="787.0" layoutY="719.0" text="Copyright © 2025 Clothing Store" textFill="#3e3e3e" />
+      <Label layoutX="582.0" layoutY="313.0" text="Username" textFill="#331848">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="878.0" layoutY="239.0" text="Last Name" textFill="#331848">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtUsername" focusColor="#9a26d4" layoutX="602.0" layoutY="333.0" prefHeight="36.0" prefWidth="247.0" promptText="Enter Username" style="-fx-background-color: f5e9fb;" unFocusColor="#3f1b51" />
+      <JFXTextField fx:id="txtLastname" focusColor="#9a26d4" layoutX="900.0" layoutY="261.0" prefHeight="36.0" prefWidth="247.0" promptText="Enter Last name" style="-fx-background-color: f5e9fb;" unFocusColor="#3f1b51" />
+      <Label layoutX="582.0" layoutY="239.0" text="First Name" textFill="#331848">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtFirstname" focusColor="#9a26d4" layoutX="602.0" layoutY="261.0" prefHeight="36.0" prefWidth="247.0" promptText="Enter First name" style="-fx-background-color: f5e9fb;" unFocusColor="#3f1b51" />
+      <JFXPasswordField fx:id="txtRePassword" focusColor="#9a26d4" layoutX="751.0" layoutY="547.0" prefHeight="36.0" prefWidth="247.0" promptText="Re-Enter password" style="-fx-background-color: f5e9fb;" unFocusColor="#3f1b51" />
+      <Label layoutX="740.0" layoutY="527.0" text="Re - Enter Password" textFill="#331848">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="742.0" layoutY="385.0" text="Salary" textFill="#331848">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="btnRoleAdmin" layoutX="776.0" layoutY="607.0" mnemonicParsing="false" text="Admin">
+         <toggleGroup>
+            <ToggleGroup fx:id="ee" />
+         </toggleGroup>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="btnRoleEmployee" layoutX="870.0" layoutY="607.0" mnemonicParsing="false" text="Employee" toggleGroup="$ee">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </RadioButton>
+      <JFXTextField fx:id="txtSalary" focusColor="#9a26d4" layoutX="751.0" layoutY="406.0" prefHeight="36.0" prefWidth="247.0" promptText="Enter salary" style="-fx-background-color: f5e9fb;" unFocusColor="#3f1b51" />
+   </children>
+</AnchorPane>
