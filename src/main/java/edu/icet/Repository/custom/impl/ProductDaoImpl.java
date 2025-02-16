@@ -6,6 +6,8 @@ import edu.icet.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 public class ProductDaoImpl implements ProductDao {
     @Override
     public boolean save(ProductEntity productEntity) {
@@ -38,5 +40,19 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public ProductEntity search(String id) {
         return null;
+    }
+
+    @Override
+    public List<ProductEntity> getAll() {
+        Session session = HibernateUtil.getSession();
+        try {
+            List<ProductEntity> fromProducts = session.createQuery("FROM ProductEntity", ProductEntity.class).list();
+            return fromProducts;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
     }
 }

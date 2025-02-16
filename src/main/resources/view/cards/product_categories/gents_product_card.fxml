@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="244.0" prefWidth="180.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.cards.product_categories.GentsProductCardController">
+   <children>
+      <ImageView fx:id="imgProduct" fitHeight="164.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../img/cloths/shirts.png" />
+         </image>
+         <VBox.margin>
+            <Insets left="12.0" />
+         </VBox.margin>
+      </ImageView>
+      <Line endX="100.0" startX="253.55003356933594" startY="-0.8284577131271362">
+         <VBox.margin>
+            <Insets left="12.0" />
+         </VBox.margin>
+      </Line>
+      <Label fx:id="lblProductName" alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="Long Sleeve Shirt" textAlignment="CENTER">
+         <VBox.margin>
+            <Insets left="12.0" right="12.0" top="10.0" />
+         </VBox.margin>
+      </Label>
+      <HBox prefHeight="43.0" prefWidth="180.0">
+         <children>
+            <TextField fx:id="txtQty" prefHeight="26.0" prefWidth="43.0">
+               <HBox.margin>
+                  <Insets left="12.0" />
+               </HBox.margin>
+            </TextField>
+            <Label alignment="TOP_RIGHT" prefHeight="18.0" prefWidth="87.0" text="Qty : " textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="lblQtyOnHand" alignment="TOP_LEFT" prefHeight="18.0" prefWidth="33.0" text="36" textAlignment="CENTER" textFill="PURPLE">
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>

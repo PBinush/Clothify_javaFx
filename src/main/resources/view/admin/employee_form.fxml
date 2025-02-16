@@ -50,27 +50,27 @@
             <Image url="@../../img/avotor/Employee-male.png" />
          </image>
       </ImageView>
-      <Label layoutX="608.0" layoutY="371.0" prefHeight="26.0" prefWidth="21.0" text="ID ">
+      <Label layoutX="608.0" layoutY="346.0" prefHeight="26.0" prefWidth="21.0" text="ID ">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="607.0" layoutY="407.0" prefHeight="26.0" prefWidth="42.0" text="Name">
+      <Label layoutX="607.0" layoutY="376.0" prefHeight="26.0" prefWidth="42.0" text="Name">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="605.0" layoutY="440.0" prefHeight="26.0" prefWidth="61.0" text="Address">
+      <Label layoutX="605.0" layoutY="441.0" prefHeight="26.0" prefWidth="61.0" text="Address">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="606.0" layoutY="474.0" prefHeight="26.0" prefWidth="53.0" text="Phone">
+      <Label layoutX="606.0" layoutY="479.0" prefHeight="26.0" prefWidth="53.0" text="Phone">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="606.0" layoutY="506.0" prefHeight="26.0" prefWidth="53.0" text="Email">
+      <Label layoutX="606.0" layoutY="511.0" prefHeight="26.0" prefWidth="53.0" text="Email">
          <font>
             <Font size="16.0" />
          </font>
@@ -90,30 +90,40 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <TextField fx:id="txtEmail" layoutX="670.0" layoutY="500.0" prefHeight="26.0" prefWidth="199.0" promptText="samantha12@gmail.com" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtEmail" layoutX="670.0" layoutY="509.0" prefHeight="26.0" prefWidth="199.0" promptText="samantha12@gmail.com" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField fx:id="txtNumber" layoutX="670.0" layoutY="466.0" prefHeight="26.0" prefWidth="199.0" promptText="078667846" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtNumber" layoutX="670.0" layoutY="475.0" prefHeight="26.0" prefWidth="199.0" promptText="078667846" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField fx:id="txtAddress" layoutX="670.0" layoutY="432.0" prefHeight="26.0" prefWidth="199.0" promptText="yakkalamulla,Galle" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtAddress" layoutX="670.0" layoutY="441.0" prefHeight="26.0" prefWidth="199.0" promptText="yakkalamulla,Galle" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField fx:id="txtName" layoutX="670.0" layoutY="398.0" prefHeight="26.0" prefWidth="199.0" promptText="samantha" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtName" layoutX="670.0" layoutY="373.0" prefHeight="26.0" prefWidth="199.0" promptText="samantha" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label fx:id="lblID" layoutX="672.0" layoutY="370.0" prefHeight="26.0" prefWidth="62.0" text="E001" textFill="PURPLE">
+      <Label fx:id="lblID" layoutX="672.0" layoutY="345.0" prefHeight="26.0" prefWidth="62.0" text="E001" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
+      <Label layoutX="605.0" layoutY="408.0" prefHeight="26.0" prefWidth="61.0" text="Position">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPosition" layoutX="671.0" layoutY="406.0" prefHeight="26.0" prefWidth="199.0" promptText="cashier" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
    </children>
 </AnchorPane>

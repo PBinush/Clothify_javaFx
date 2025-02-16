@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.layout.AnchorPane?>
-
-
-<AnchorPane fx:id="ancProductCategory" prefHeight="463.0" prefWidth="522.0" style="-fx-background-color: white; -fx-background-radius: 15px;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" />

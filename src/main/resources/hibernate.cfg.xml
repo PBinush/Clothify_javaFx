@@ -18,6 +18,9 @@
         <!-- DB schema will be updated if needed -->
         <property name="hibernate.hbm2ddl.auto">create</property>
         <mapping class="edu.icet.entity.SupplierEntity"/>
+        <mapping class="edu.icet.entity.UserEntity"/>
         <mapping class="edu.icet.entity.ProductEntity"/>
+        <mapping class="edu.icet.entity.SupplierEntity"/>
+        <mapping class="edu.icet.entity.CustomerEntity"/>
     </session-factory>
 </hibernate-configuration>

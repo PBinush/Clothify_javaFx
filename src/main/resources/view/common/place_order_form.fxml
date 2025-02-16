@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anc2" prefHeight="674.0" prefWidth="926.0" style="-fx-background-color: f0f0f0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.common.PlaceOrderFormController">
+   <children>
+      <ScrollPane layoutX="10.0" layoutY="151.0" prefHeight="495.0" prefWidth="547.0" style="-fx-background-color: white; -fx-background-radius: 15px;">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+         </content>
+      </ScrollPane>
+      <Label layoutX="42.0" layoutY="19.0" text="Place Order " textFill="PURPLE">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Region layoutX="570.0" layoutY="111.0" prefHeight="534.0" prefWidth="331.0" style="-fx-background-color: white; -fx-background-radius: 15px;" />
+      <TextField fx:id="txtSearch" layoutX="255.0" layoutY="57.0" prefHeight="42.0" prefWidth="364.0" promptText="  🔎    Search product" style="-fx-background-color: white; -fx-background-radius: 12px; -fx-border-color: fceeff; -fx-border-radius: 12px;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Button layoutX="628.0" layoutY="57.0" mnemonicParsing="false" onAction="#btnSearchOnAction" prefHeight="42.0" prefWidth="42.0" style="-fx-background-color: white; -fx-background-radius: 15px; -fx-border-color: fceeff; -fx-border-radius: 15px;" stylesheets="@../../css/style.css" text="🔍" textFill="#b100ff">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Region layoutX="54.0" layoutY="161.0" prefHeight="143.0" prefWidth="122.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
+      <Region layoutX="224.0" layoutY="161.0" prefHeight="176.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
+      <Region layoutX="394.0" layoutY="161.0" prefHeight="176.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
+      <Region layoutX="54.0" layoutY="362.0" prefHeight="229.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
+      <Region layoutX="224.0" layoutY="362.0" prefHeight="176.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
+      <Region layoutX="394.0" layoutY="362.0" prefHeight="176.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
+      <Label layoutX="578.0" layoutY="118.0" text="Order details" textFill="PURPLE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="773.0" layoutY="609.0" mnemonicParsing="false" onAction="#btnPlaceOrderAction" prefHeight="27.0" prefWidth="114.0" style="-fx-background-color: purple; -fx-background-radius: 5px;" text="Place order" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="addCustomer" fitHeight="27.0" fitWidth="42.0" layoutX="862.0" layoutY="120.0" onMouseClicked="#btnAddCustomer" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/icon/add.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="584.0" layoutY="151.0" text="Order ID : ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblOrderId" layoutX="652.0" layoutY="151.0" text="O001" textFill="PURPLE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="821.0" layoutY="147.0" prefHeight="20.0" prefWidth="75.0" text="2025-2-10">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="22.0" layoutY="115.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="27.0" prefWidth="160.0" style="-fx-background-color: purple; -fx-background-radius: 15px;" text="Gents" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="203.0" layoutY="115.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="27.0" prefWidth="160.0" style="-fx-background-color: purple; -fx-background-radius: 15px;" text="Ladies" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="384.0" layoutY="115.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="27.0" prefWidth="160.0" style="-fx-background-color: purple; -fx-background-radius: 15px;" text="Kids" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtNumber" layoutX="636.0" layoutY="181.0" prefHeight="26.0" prefWidth="199.0" promptText="customer phone number" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="txtName" layoutX="636.0" layoutY="212.0" prefHeight="26.0" prefWidth="199.0" promptText="customer Name" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <ScrollPane layoutX="582.0" layoutY="263.0" prefHeight="270.0" prefWidth="306.0">
+         <content>
+            <TableView prefHeight="252.0" prefWidth="306.0">
+              <columns>
+                <TableColumn fx:id="colName" prefWidth="119.19994813203812" text="ProductName" />
+                <TableColumn fx:id="colQty" minWidth="8.00006103515625" prefWidth="40.79998779296875" text="QtyOnHand" />
+                  <TableColumn fx:id="colPrice" prefWidth="109.59999084472656" text="Price" />
+                  <TableColumn fx:id="colDeletebtn" prefWidth="39.2000732421875" text="{}" />
+              </columns>
+            </TableView>
+         </content>
+      </ScrollPane>
+      <Label layoutX="586.0" layoutY="548.0" text="Subtotal">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="586.0" layoutY="572.0" text="Discount">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="586.0" layoutY="597.0" text="Total ">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSubtotal" layoutX="664.0" layoutY="549.0" text="25000.00">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDiscount" layoutX="664.0" layoutY="573.0" text="0.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTotal" layoutX="691.0" layoutY="597.0" text="25000.00" textFill="PURPLE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="664.0" layoutY="597.0" text="LKR" textFill="PURPLE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

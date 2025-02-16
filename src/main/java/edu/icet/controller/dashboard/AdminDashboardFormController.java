@@ -61,7 +61,12 @@ public class AdminDashboardFormController {
 
     @FXML
     void btnPlaceOrderOnAction(ActionEvent event) {
-
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../../../../view/common/place_order_form.fxml"));
+            anc2.getChildren().setAll(pane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
