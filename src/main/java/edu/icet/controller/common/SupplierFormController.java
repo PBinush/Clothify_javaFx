@@ -55,6 +55,7 @@ public class SupplierFormController implements Initializable {
     void btnAddOnAction(ActionEvent event) {
         SupplierService supplierService = ServiceFactory.getInstance().getServiceTpe(ServiceType.SUPPLIER);
         Supplier supplier = new Supplier(
+                null,
                 cmbTitle.getValue().toString(),
                 txtName.getText(),
                 txtCompany.getText(),

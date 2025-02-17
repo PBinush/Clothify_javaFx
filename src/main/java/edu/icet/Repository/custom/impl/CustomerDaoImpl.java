@@ -43,5 +43,10 @@ public class CustomerDaoImpl implements CustomerDao {
         return null;
     }
 
+    @Override
+    public String getLastId() {
+        return "";
+    }
+
 
 }

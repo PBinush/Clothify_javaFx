@@ -38,4 +38,9 @@ public class UserDaoImpl implements UserDao {
     public UserEntity search(String id) {
         return null;
     }
+
+    @Override
+    public String getLastId() {
+        return "";
+    }
 }

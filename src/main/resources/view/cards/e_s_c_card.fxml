@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="vb_e_s_c" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="231.0" prefWidth="172.0" style="-fx-background-color: white; -fx-background-radius: 15px;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.cards.E_S_C_CardController">
+   <children>
+      <ImageView fx:id="imgAvator" fitHeight="142.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/avotor/customer-male.png" />
+         </image>
+         <VBox.margin>
+            <Insets bottom="5.0" left="12.0" top="7.0" />
+         </VBox.margin>
+      </ImageView>
+      <Line endX="100.0" startX="253.55003356933594" startY="-0.8284577131271362" strokeWidth="0.3">
+         <VBox.margin>
+            <Insets left="8.0" />
+         </VBox.margin>
+      </Line>
+      <HBox prefHeight="27.0" prefWidth="180.0">
+         <children>
+            <Label fx:id="lblId" alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="24.0" prefWidth="177.0" text="E001" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets top="4.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+      <Label fx:id="lblName" alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="Ruwan Chinthaka" textAlignment="CENTER" textFill="PURPLE">
+         <VBox.margin>
+            <Insets left="12.0" right="12.0" top="5.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Corbel" size="16.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

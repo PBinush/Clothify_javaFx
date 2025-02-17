@@ -11,9 +11,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Products {
+    private String id;
     private String name;
     private String size;
     private Integer qty;
     private String category;
     private Double price;
+//    private String imagePath;
 }

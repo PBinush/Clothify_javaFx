@@ -18,7 +18,7 @@
 
 <AnchorPane fx:id="ancLogin" prefHeight="755.0" prefWidth="1202.0" style="-fx-background-color: f0f0f0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.dashboard.AdminDashboardFormController">
    <children>
-      <Region layoutX="19.0" layoutY="18.0" prefHeight="716.0" prefWidth="258.0" style="-fx-background-color: white; -fx-background-radius: 15px;" />
+      <Region layoutX="19.0" layoutY="18.0" prefHeight="716.0" prefWidth="258.0" style="-fx-background-color: fceeff; -fx-background-radius: 15px; -fx-border-color: white; -fx-border-radius: 15px; -fx-background-size: 3px;" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/logo2.png" />
@@ -201,7 +201,7 @@
             </LineChart>
          </children>
       </AnchorPane>
-      <Button layoutX="58.0" layoutY="185.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="30.0" prefWidth="180.0" stylesheets="@../../css/dashboard.css" text="Dashboard" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="185.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Dashboard" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -209,7 +209,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="58.0" layoutY="239.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="30.0" prefWidth="180.0" stylesheets="@../../css/dashboard.css" text="Place Order" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="239.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Place Order" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -217,7 +217,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="58.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="30.0" prefWidth="180.0" stylesheets="@../../css/dashboard.css" text="Employee" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="291.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Employee" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -225,7 +225,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="58.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="30.0" prefWidth="180.0" stylesheets="@../../css/dashboard.css" text="Customer" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="344.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Customer" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -233,7 +233,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="58.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnProductOnAction" prefHeight="30.0" prefWidth="180.0" stylesheets="@../../css/dashboard.css" text="Product" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="397.0" mnemonicParsing="false" onAction="#btnProductOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Product" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -241,7 +241,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="58.0" layoutY="450.0" mnemonicParsing="false" onAction="#btnSuppliersOnAction" prefHeight="30.0" prefWidth="180.0" stylesheets="@../../css/dashboard.css" text="Supplier" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="450.0" mnemonicParsing="false" onAction="#btnSuppliersOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Supplier" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -249,7 +249,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="58.0" layoutY="503.0" mnemonicParsing="false" onAction="#btnOrdersOnAction" prefHeight="30.0" prefWidth="180.0" stylesheets="@../../css/dashboard.css" text="Orders" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="503.0" mnemonicParsing="false" onAction="#btnOrdersOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Orders" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -267,7 +267,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Region layoutX="301.0" layoutY="18.0" prefHeight="49.0" prefWidth="890.0" style="-fx-background-color: white; -fx-background-radius: 15px;" />
+      <Region layoutX="301.0" layoutY="18.0" prefHeight="49.0" prefWidth="890.0" style="-fx-background-color: fceeff; -fx-background-radius: 15px; -fx-border-color: white; -fx-background-size: 3px; -fx-border-radius: 15px;" />
       <Label layoutX="321.0" layoutY="30.0" text="Welcome to Clothify Store">
          <font>
             <Font name="System Bold" size="16.0" />

@@ -40,4 +40,9 @@ public class SupplierDaoImpl implements SupplierDao {
     public SupplierEntity search(String id) {
         return null;
     }
+
+    @Override
+    public String getLastId() {
+        return "";
+    }
 }

@@ -9,4 +9,6 @@ public interface ProductService extends SuperService {
     boolean saveProduct(Products product);
     boolean searchProductByName(String name);
     List<Products> getAllProducts();
+    String genarateId();
+    Products getProductById(String id);
 }

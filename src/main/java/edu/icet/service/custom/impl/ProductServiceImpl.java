@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductServiceImpl implements ProductService {
+    final ProductDao productDao = DaoFactory.getInstance().getDaoType(DaoType.PRODUCT);
+
     @Override
     public boolean saveProduct(Products product) {
-        String id = "P001";
         ProductEntity map = new ModelMapper().map(product, ProductEntity.class);
-        map.setId(id);
-        ProductDao productDao = DaoFactory.getInstance().getDaoType(DaoType.PRODUCT);
+        map.setId(genarateId());
         if (productDao.save(map)){
             return true;
         }
@@ -32,13 +32,33 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Products> getAllProducts() {
-        ProductDao daoType = DaoFactory.getInstance().getDaoType(DaoType.PRODUCT);
         ArrayList<Products> products = new ArrayList<>();
-        for (ProductEntity entity : daoType.getAll()) {
+        for (ProductEntity entity : productDao.getAll()) {
             products.add(
                     new ModelMapper().map(entity,Products.class)
             );
         }
         return products;
+    }
+
+    @Override
+    public String genarateId(){
+        String lastId = productDao.getLastId();
+        if (lastId == null || lastId.isEmpty()) {
+            lastId = "P000";
+        }
+
+        int i = Integer.parseInt(lastId.substring(1));
+        i++;
+
+        String id = String.format("P%03d", i);
+        System.out.println("Next Product ID: " + id);
+        return id;
+    }
+
+    @Override
+    public Products getProductById(String id) {
+        ProductEntity productById = productDao.getProductById(id);
+        return new ModelMapper().map(productById, Products.class);
     }
 }

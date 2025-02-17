@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface ProductDao extends CrudDao<ProductEntity> {
     List<ProductEntity> getAll();
+    ProductEntity getProductById(String id);
 }

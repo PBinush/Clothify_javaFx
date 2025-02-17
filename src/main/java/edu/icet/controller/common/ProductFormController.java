@@ -3,6 +3,7 @@ package edu.icet.controller.common;
 import edu.icet.controller.cards.product_categories.GentsProductCardController;
 import edu.icet.dto.Products;
 import edu.icet.service.ServiceFactory;
+import edu.icet.service.SuperService;
 import edu.icet.service.custom.ProductService;
 import edu.icet.util.ServiceType;
 import javafx.collections.FXCollections;
@@ -19,7 +20,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -63,8 +63,10 @@ public class ProductFormController implements Initializable {
 
     private List<Products> productsList;
 
+
+    final ProductService productService = ServiceFactory.getInstance().getServiceTpe(ServiceType.PRODUCT);
+
     public void loadProducts() {
-        ProductService productService = ServiceFactory.getInstance().getServiceTpe(ServiceType.PRODUCT);
         productsList = productService.getAllProducts();
 
         int column = 0;
@@ -75,9 +77,9 @@ public class ProductFormController implements Initializable {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/view/cards/product_categories/gents_product_card.fxml"));
                 VBox cardBox = fxmlLoader.load();
-
                 GentsProductCardController gentsProductCardController = fxmlLoader.getController();
-                gentsProductCardController.setData(product); // Pass product details to the card
+                gentsProductCardController.setData(product);
+                gentsProductCardController.setOnCardClick(this::handleProductCardClick);
 
                 if (column == 3) {
                     column = 0;
@@ -85,17 +87,49 @@ public class ProductFormController implements Initializable {
                 }
 
                 productCardContainer.add(cardBox, column++, row);
-                GridPane.setMargin(cardBox, new Insets(10));
+                GridPane.setMargin(cardBox, new Insets(3));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    private void handleProductCardClick(String productId) {
+        System.out.println("Clicked Product ID: " + productId);
+        loadDetails(productId);
+    }
+
+    public void loadDetails(String id){
+        Products productById = productService.getProductById(id);
+        txtName.setText(productById.getName());
+        txtPrice.setText(productById.getPrice().toString());
+        txtQty.setText(productById.getQty().toString());
+        cmbCategory.setValue(productById.getCategory());
+        cmbSize.setValue(productById.getSize());
+        lblID.setText(productById.getId());
+    }
+
+    public void clearCartDetails(){
+        txtName.clear();
+        txtQty.clear();
+        txtPrice.clear();
+        cmbSize.setValue(null);
+        cmbCategory.setValue(null);
+    }
+
+    //in-progress
+    public void imageGenarate(){
+        if (txtName.getText().equals("T-shirt")|
+            txtName.getText().equals("t-shirt")|
+            txtName.getText().equals("")){
+
+        }
+    }
+
     @FXML
     void btnAddOnAction(ActionEvent event) {
-        ProductService productService = ServiceFactory.getInstance().getServiceTpe(ServiceType.PRODUCT);
         Products product = new Products(
+                null,
                 txtName.getText(),
                 cmbSize.getValue().toString(),
                 Integer.parseInt(txtQty.getText()),
@@ -107,6 +141,9 @@ public class ProductFormController implements Initializable {
         }else {
             new Alert(Alert.AlertType.ERROR).show();
         }
+        lblID.setText(productService.genarateId());
+        loadProducts();
+        clearCartDetails();
     }
 
     @FXML
@@ -121,7 +158,17 @@ public class ProductFormController implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-loadProducts();
+
+    }
+
+    public void btnLadiesOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnGentsOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnKidsOnAction(ActionEvent actionEvent) {
+        loadProducts();
     }
 
     @Override
@@ -140,6 +187,7 @@ loadProducts();
         categoryList.add("Ladies");
         cmbCategory.setItems(categoryList);
 
-
+        lblID.setText(productService.genarateId());
+        loadProducts();
     }
 }

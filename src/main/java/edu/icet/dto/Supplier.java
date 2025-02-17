@@ -10,6 +10,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Supplier {
+    private String id;
     private String title;
     private String name;
     private String company;

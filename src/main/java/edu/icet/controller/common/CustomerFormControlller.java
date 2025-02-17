@@ -42,6 +42,7 @@ public class CustomerFormControlller {
     void btnAddOnAction(ActionEvent event) {
         CustomerService serviceTpe = ServiceFactory.getInstance().getServiceTpe(ServiceType.CUSTOMERS);
         Customer customer = new Customer(
+                null,
                 txtName.getText(),
                 txtAddress.getText(),
                 txtNumber.getText(),

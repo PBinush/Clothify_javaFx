@@ -39,4 +39,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public EmployeeEntity search(String id) {
         return null;
     }
+
+    @Override
+    public String getLastId() {
+        return "";
+    }
 }

@@ -44,6 +44,7 @@ public class EmployeeFormController {
     @FXML
     void btnAddOnAction(ActionEvent event) {
         Employee employee = new Employee(
+                null,
                 txtName.getText(),
                 txtPosition.getText(),
                 txtAddress.getText(),
