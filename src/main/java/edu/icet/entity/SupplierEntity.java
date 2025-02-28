@@ -1,6 +1,5 @@
 package edu.icet.entity;
 
-import edu.icet.dto.Products;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +19,5 @@ public class SupplierEntity {
     private String name;
     private String company;
     private String email;
-//    @ManyToOne(optional = false)
-//    private Products product;
+    private String product;
 }

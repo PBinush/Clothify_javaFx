@@ -1,9 +1,8 @@
 package edu.icet.controller.common;
 
 import edu.icet.controller.cards.product_categories.GentsProductCardController;
-import edu.icet.dto.Products;
+import edu.icet.dto.Product;
 import edu.icet.service.ServiceFactory;
-import edu.icet.service.SuperService;
 import edu.icet.service.custom.ProductService;
 import edu.icet.util.ServiceType;
 import javafx.collections.FXCollections;
@@ -19,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -43,10 +43,8 @@ public class ProductFormController implements Initializable {
     @FXML
     private AnchorPane anc2;
 
-
     @FXML
     private GridPane productCardContainer;
-
 
     @FXML
     private ImageView imgAvotor;
@@ -54,26 +52,24 @@ public class ProductFormController implements Initializable {
     @FXML
     private Label lblID;
 
-
     @FXML
     private TextField txtName;
 
     @FXML
     private TextField txtSearch;
 
-    private List<Products> productsList;
-
+    private List<Product> productsList;
 
     final ProductService productService = ServiceFactory.getInstance().getServiceTpe(ServiceType.PRODUCT);
 
-    public void loadProducts() {
-        productsList = productService.getAllProducts();
+    public void loadGentsProducts() {
+        productsList = productService.getAllGentsProduct();
 
         int column = 0;
         int row = 1;
 
         try {
-            for (Products product : productsList) {
+            for (Product product : productsList) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/view/cards/product_categories/gents_product_card.fxml"));
                 VBox cardBox = fxmlLoader.load();
@@ -94,13 +90,43 @@ public class ProductFormController implements Initializable {
         }
     }
 
-    private void handleProductCardClick(String productId) {
+
+
+    public void loadLadiesProducts() {
+        productsList = productService.getAllLadiesProduct();
+
+        int column = 0;
+        int row = 1;
+
+        try {
+            for (Product product : productsList) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("/view/cards/product_categories/gents_product_card.fxml"));
+                VBox cardBox = fxmlLoader.load();
+                GentsProductCardController gentsProductCardController = fxmlLoader.getController();
+                gentsProductCardController.setData(product);
+                gentsProductCardController.setOnCardClick(this::handleProductCardClick);
+
+                if (column == 3) {
+                    column = 0;
+                    ++row;
+                }
+
+                productCardContainer.add(cardBox, column++, row);
+                GridPane.setMargin(cardBox, new Insets(3));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void handleProductCardClick(String productId) {
         System.out.println("Clicked Product ID: " + productId);
         loadDetails(productId);
     }
 
     public void loadDetails(String id){
-        Products productById = productService.getProductById(id);
+        Product productById = productService.getProductById(id);
         txtName.setText(productById.getName());
         txtPrice.setText(productById.getPrice().toString());
         txtQty.setText(productById.getQty().toString());
@@ -119,16 +145,11 @@ public class ProductFormController implements Initializable {
 
     //in-progress
     public void imageGenarate(){
-        if (txtName.getText().equals("T-shirt")|
-            txtName.getText().equals("t-shirt")|
-            txtName.getText().equals("")){
-
-        }
     }
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
-        Products product = new Products(
+        Product product = new Product(
                 null,
                 txtName.getText(),
                 cmbSize.getValue().toString(),
@@ -142,7 +163,7 @@ public class ProductFormController implements Initializable {
             new Alert(Alert.AlertType.ERROR).show();
         }
         lblID.setText(productService.genarateId());
-        loadProducts();
+        loadGentsProducts();
         clearCartDetails();
     }
 
@@ -162,13 +183,25 @@ public class ProductFormController implements Initializable {
     }
 
     public void btnLadiesOnAction(ActionEvent actionEvent) {
+        loadGentsProducts();
     }
 
     public void btnGentsOnAction(ActionEvent actionEvent) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../../../../view/common/product_form.fxml"));
+            anc2.getChildren().setAll(pane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void btnKidsOnAction(ActionEvent actionEvent) {
-        loadProducts();
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../../../../view/common/product_kids_category_form.fxml"));
+            ancProductCategory.getChildren().setAll(pane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -188,6 +221,6 @@ public class ProductFormController implements Initializable {
         cmbCategory.setItems(categoryList);
 
         lblID.setText(productService.genarateId());
-        loadProducts();
+        loadGentsProducts();
     }
 }

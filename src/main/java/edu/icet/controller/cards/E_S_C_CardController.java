@@ -1,10 +1,10 @@
 package edu.icet.controller.cards;
 
 import edu.icet.dto.Customer;
+import edu.icet.dto.Supplier;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 import java.util.function.Consumer;
@@ -30,6 +30,12 @@ public class E_S_C_CardController {
         cardId=customer.getId();
         lblId.setText(customer.getId());
         lblName.setText(customer.getName());
+    }
+
+    public void  setData1(Supplier supplier){
+        cardId=supplier.getId();
+        lblId.setText(supplier.getId());
+        lblName.setText(supplier.getName());
     }
 
     public void setOnCardClick(Consumer<String> listener) {

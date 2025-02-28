@@ -1,5 +1,6 @@
 package edu.icet.dto;
 
+import javafx.scene.control.Button;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,11 +10,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Supplier {
-    private String id;
-    private String title;
-    private String name;
-    private String company;
-    private String email;
-    private String product;
+public class OrderDetails {
+    private String productName;
+    private Integer qtyOnHand;
+    private Double price;
+//    private Button delete;
 }

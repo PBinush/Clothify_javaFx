@@ -1,14 +1,12 @@
 package edu.icet.service.custom.impl;
 
 import edu.icet.Repository.DaoFactory;
-import edu.icet.Repository.SuperDao;
 import edu.icet.Repository.custom.ProductDao;
-import edu.icet.dto.Products;
+import edu.icet.dto.Product;
 import edu.icet.entity.ProductEntity;
 import edu.icet.service.custom.ProductService;
 import edu.icet.util.DaoType;
 import org.modelmapper.ModelMapper;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +14,7 @@ public class ProductServiceImpl implements ProductService {
     final ProductDao productDao = DaoFactory.getInstance().getDaoType(DaoType.PRODUCT);
 
     @Override
-    public boolean saveProduct(Products product) {
+    public boolean saveProduct(Product product) {
         ProductEntity map = new ModelMapper().map(product, ProductEntity.class);
         map.setId(genarateId());
         if (productDao.save(map)){
@@ -31,11 +29,33 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Products> getAllProducts() {
-        ArrayList<Products> products = new ArrayList<>();
-        for (ProductEntity entity : productDao.getAll()) {
+    public List<Product> getAllGentsProduct() {
+        ArrayList<Product> products = new ArrayList<>();
+        for (ProductEntity entity : productDao.getAllGentsProduct()) {
             products.add(
-                    new ModelMapper().map(entity,Products.class)
+                    new ModelMapper().map(entity, Product.class)
+            );
+        }
+        return products;
+    }
+
+    @Override
+    public List<Product> getAllKidsProduct() {
+        ArrayList<Product> products = new ArrayList<>();
+        for (ProductEntity entity : productDao.getAllKidsProduct()) {
+            products.add(
+                    new ModelMapper().map(entity, Product.class)
+            );
+        }
+        return products;
+    }
+
+    @Override
+    public List<Product> getAllLadiesProduct() {
+        ArrayList<Product> products = new ArrayList<>();
+        for (ProductEntity entity : productDao.getAllLadiesProduct()) {
+            products.add(
+                    new ModelMapper().map(entity, Product.class)
             );
         }
         return products;
@@ -57,8 +77,35 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Products getProductById(String id) {
+    public Product getProductById(String id) {
         ProductEntity productById = productDao.getProductById(id);
-        return new ModelMapper().map(productById, Products.class);
+        return new ModelMapper().map(productById, Product.class);
     }
+
+    @Override
+    public List<Product> getAllProducts() {
+        ArrayList<Product> products = new ArrayList<>();
+        for (ProductEntity entity : productDao.getAll()) {
+            products.add(
+                    new ModelMapper().map(entity, Product.class)
+            );
+        }
+        return products;
+    }
+
+    @Override
+    public List<String> getAllProductIds() {
+        return productDao.getAllProductIds();
+    }
+
+    @Override
+    public boolean updateProduct(Product product) {
+        ProductEntity map = new ModelMapper().map(product, ProductEntity.class);
+        map.setId(genarateId());
+        if (productDao.save(map)){
+            return true;
+        }
+        return false;
+    }
+
 }

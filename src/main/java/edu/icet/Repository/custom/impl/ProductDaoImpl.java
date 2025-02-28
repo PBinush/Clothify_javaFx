@@ -39,7 +39,20 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public boolean update(ProductEntity productEntity) {
-        return false;
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.persist(productEntity);
+            transaction.commit();
+            System.out.println(productEntity);
+            return true;
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -66,11 +79,48 @@ public class ProductDaoImpl implements ProductDao {
 
 
     @Override
-    public List<ProductEntity> getAll() {
+    public List<ProductEntity> getAllGentsProduct() {
         Session session = HibernateUtil.getSession();
         try {
-            List<ProductEntity> fromProducts = session.createQuery("FROM ProductEntity", ProductEntity.class).list();
-            return fromProducts;
+            List<ProductEntity> gentsProducts = session.createQuery(
+                            "FROM ProductEntity p WHERE p.category = :category", ProductEntity.class)
+                    .setParameter("category", "Gents")
+                    .list();
+            return gentsProducts;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<ProductEntity> getAllKidsProduct() {
+        Session session = HibernateUtil.getSession();
+        try {
+            List<ProductEntity> gentsProducts = session.createQuery(
+                            "FROM ProductEntity p WHERE p.category = :category", ProductEntity.class)
+                    .setParameter("category", "Kids")
+                    .list();
+            return gentsProducts;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<ProductEntity> getAllLadiesProduct() {
+        Session session = HibernateUtil.getSession();
+        try {
+            List<ProductEntity> gentsProducts = session.createQuery(
+                            "FROM ProductEntity p WHERE p.category = :category", ProductEntity.class)
+                    .setParameter("category", "Ladies")
+                    .list();
+            return gentsProducts;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -86,6 +136,34 @@ public class ProductDaoImpl implements ProductDao {
             Query<ProductEntity> query = session.createQuery("FROM ProductEntity WHERE id = :productId", ProductEntity.class);
             query.setParameter("productId", id);
             return query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<ProductEntity> getAll() {
+        Session session = HibernateUtil.getSession();
+        try {
+            List<ProductEntity> fromProducts = session.createQuery("FROM ProductEntity", ProductEntity.class).list();
+            return fromProducts;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<String> getAllProductIds() {
+        Session session = HibernateUtil.getSession();
+        try {
+            Query<String> query = session.createQuery("SELECT p.id FROM ProductEntity p", String.class);
+            return query.list();
         } catch (Exception e) {
             e.printStackTrace();
             return null;

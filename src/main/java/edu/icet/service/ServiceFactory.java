@@ -2,9 +2,7 @@ package edu.icet.service;
 
 import edu.icet.Repository.custom.impl.CustomerDaoImpl;
 import edu.icet.Repository.custom.impl.EmployeeDaoImpl;
-import edu.icet.service.custom.impl.ProductServiceImpl;
-import edu.icet.service.custom.impl.SupplierServiceImpl;
-import edu.icet.service.custom.impl.UserServiceImpl;
+import edu.icet.service.custom.impl.*;
 import edu.icet.util.ServiceType;
 
 public class ServiceFactory {
@@ -21,8 +19,9 @@ public class ServiceFactory {
             case USER:return (T) new UserServiceImpl();
             case SUPPLIER:return (T) new SupplierServiceImpl();
             case PRODUCT:return (T) new ProductServiceImpl();
-            case CUSTOMERS:return (T) new CustomerDaoImpl();
-            case EMPLOYEE:return (T) new EmployeeDaoImpl();
+            case CUSTOMERS:return (T) new CustomerServiceImpl();
+            case EMPLOYEE:return (T) new EmployeeServiceImpl();
+            case ORDER_DETAILS:return (T) new OrderDetailsServiceImpl();
         }
         return null;
     }

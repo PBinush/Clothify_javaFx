@@ -1,6 +1,6 @@
 package edu.icet.controller.cards.product_categories;
 
-import edu.icet.dto.Products;
+import edu.icet.dto.Product;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -28,7 +28,7 @@ public class GentsProductCardController {
     private Consumer<String> onCardClick;
 
 
-    public void setData(Products product){
+    public void setData(Product product){
         cardId=product.getId();
         lblProductName.setText(product.getName());
         lblQtyOnHand.setText(product.getQty().toString());
