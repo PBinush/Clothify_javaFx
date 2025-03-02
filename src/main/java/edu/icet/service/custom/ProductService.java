@@ -2,7 +2,6 @@ package edu.icet.service.custom;
 
 import edu.icet.dto.Product;
 import edu.icet.service.SuperService;
-
 import java.util.List;
 
 public interface ProductService extends SuperService {
@@ -16,4 +15,6 @@ public interface ProductService extends SuperService {
     List<Product> getAllProducts();
     List<String> getAllProductIds();
     boolean updateProduct(Product product);
+    boolean deleteProduct(String id);
+
 }

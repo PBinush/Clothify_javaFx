@@ -3,7 +3,6 @@ package edu.icet.Repository.custom.impl;
 import edu.icet.Repository.custom.CustomerDao;
 import edu.icet.db.DBConnection;
 import edu.icet.entity.CustomerEntity;
-import edu.icet.entity.ProductEntity;
 import edu.icet.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -35,12 +34,37 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public boolean delete(String id) {
-        return false;
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            CustomerEntity customerEntity = session.get(CustomerEntity.class, id);
+            session.delete(customerEntity);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
     public boolean update(CustomerEntity customerEntity) {
-        return false;
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.update(customerEntity);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override

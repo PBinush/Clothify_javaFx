@@ -26,12 +26,37 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean delete(String id) {
-        return false;
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            UserEntity userEntity = session.get(UserEntity.class, id);
+            session.delete(userEntity);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
     public boolean update(UserEntity user) {
-        return false;
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.update(user);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -41,6 +66,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public String getLastId() {
-        return "";
+        return " ";
     }
 }

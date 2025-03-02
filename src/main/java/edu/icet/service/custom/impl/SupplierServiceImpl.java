@@ -2,14 +2,11 @@ package edu.icet.service.custom.impl;
 
 import edu.icet.Repository.DaoFactory;
 import edu.icet.Repository.custom.SupplierDao;
-import edu.icet.dto.Customer;
 import edu.icet.dto.Supplier;
-import edu.icet.entity.CustomerEntity;
 import edu.icet.entity.SupplierEntity;
 import edu.icet.service.custom.SupplierService;
 import edu.icet.util.DaoType;
 import org.modelmapper.ModelMapper;
-
 import java.util.ArrayList;
 import java.util.List;
 

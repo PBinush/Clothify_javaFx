@@ -2,7 +2,6 @@ package edu.icet.service.custom;
 
 import edu.icet.dto.Customer;
 import edu.icet.service.SuperService;
-
 import java.util.List;
 
 public interface CustomerService extends SuperService {
@@ -10,4 +9,6 @@ public interface CustomerService extends SuperService {
     List<Customer> getAllCustomers();
     String genarateId();
     Customer getCustomerById(String id);
+    boolean deleteCustomer(String id);
+    boolean updateCustomer(Customer customer);
 }

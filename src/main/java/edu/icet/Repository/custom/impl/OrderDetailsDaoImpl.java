@@ -2,7 +2,6 @@ package edu.icet.Repository.custom.impl;
 
 import edu.icet.Repository.custom.OrderDetailsDao;
 import edu.icet.entity.OrderDetailsEntity;
-import edu.icet.entity.SupplierEntity;
 import edu.icet.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

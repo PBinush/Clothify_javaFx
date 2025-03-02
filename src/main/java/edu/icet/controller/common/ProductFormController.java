@@ -2,6 +2,7 @@ package edu.icet.controller.common;
 
 import edu.icet.controller.cards.product_categories.GentsProductCardController;
 import edu.icet.dto.Product;
+import edu.icet.dto.Supplier;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.ProductService;
 import edu.icet.util.ServiceType;
@@ -59,41 +60,65 @@ public class ProductFormController implements Initializable {
     private TextField txtSearch;
 
     private List<Product> productsList;
-
     final ProductService productService = ServiceFactory.getInstance().getServiceTpe(ServiceType.PRODUCT);
+
+    @FXML
+    void btnAddOnAction(ActionEvent event) {
+        Product product = new Product(
+                null,
+                txtName.getText(),
+                cmbSize.getValue().toString(),
+                Integer.parseInt(txtQty.getText()),
+                cmbCategory.getValue().toString(),
+                Double.parseDouble(txtPrice.getText())
+        );
+        if (productService.saveProduct(product)){
+            new Alert(Alert.AlertType.INFORMATION,"Product Added Successfully").show();
+        }else {
+            new Alert(Alert.AlertType.ERROR).show();
+        }
+        lblID.setText(productService.genarateId());
+        loadGentsProducts();
+        clearCartDetailP();
+    }
+
+    @FXML
+    void btnDeleteOnAction(ActionEvent event) {
+        if(productService.deleteProduct(lblID.getText())){
+            new Alert(Alert.AlertType.ERROR,"Delete Successfully : "+lblID.getText()).show();
+        }else {
+            new Alert(Alert.AlertType.ERROR).show();
+        }
+        loadGentsProducts();
+        clearCartDetailP();
+    }
+
+    @FXML
+    void btnSearchOnAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+        Product product = new Product(
+                lblID.getText(),
+                txtName.getText(),
+                cmbSize.getValue().toString(),
+                Integer.parseInt(txtQty.getText()),
+                cmbCategory.getValue().toString(),
+                Double.parseDouble(txtPrice.getText())
+        );
+        if (productService.updateProduct(product)){
+            new Alert(Alert.AlertType.INFORMATION,"Update Successful : "+lblID.getText()).show();
+        }else {
+            new Alert(Alert.AlertType.ERROR).show();
+        }
+        loadGentsProducts();
+        clearCartDetailP();
+    }
 
     public void loadGentsProducts() {
         productsList = productService.getAllGentsProduct();
-
-        int column = 0;
-        int row = 1;
-
-        try {
-            for (Product product : productsList) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("/view/cards/product_categories/gents_product_card.fxml"));
-                VBox cardBox = fxmlLoader.load();
-                GentsProductCardController gentsProductCardController = fxmlLoader.getController();
-                gentsProductCardController.setData(product);
-                gentsProductCardController.setOnCardClick(this::handleProductCardClick);
-
-                if (column == 3) {
-                    column = 0;
-                    ++row;
-                }
-
-                productCardContainer.add(cardBox, column++, row);
-                GridPane.setMargin(cardBox, new Insets(3));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-
-    public void loadLadiesProducts() {
-        productsList = productService.getAllLadiesProduct();
 
         int column = 0;
         int row = 1;
@@ -135,51 +160,12 @@ public class ProductFormController implements Initializable {
         lblID.setText(productById.getId());
     }
 
-    public void clearCartDetails(){
+    public void clearCartDetailP(){
         txtName.clear();
         txtQty.clear();
         txtPrice.clear();
         cmbSize.setValue(null);
         cmbCategory.setValue(null);
-    }
-
-    //in-progress
-    public void imageGenarate(){
-    }
-
-    @FXML
-    void btnAddOnAction(ActionEvent event) {
-        Product product = new Product(
-                null,
-                txtName.getText(),
-                cmbSize.getValue().toString(),
-                Integer.parseInt(txtQty.getText()),
-                cmbCategory.getValue().toString(),
-                Double.parseDouble(txtPrice.getText())
-        );
-        if (productService.saveProduct(product)){
-            new Alert(Alert.AlertType.INFORMATION,"Product Added Successfully").show();
-        }else {
-            new Alert(Alert.AlertType.ERROR).show();
-        }
-        lblID.setText(productService.genarateId());
-        loadGentsProducts();
-        clearCartDetails();
-    }
-
-    @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnSearchOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnUpdateOnAction(ActionEvent event) {
-
     }
 
     public void btnLadiesOnAction(ActionEvent actionEvent) {

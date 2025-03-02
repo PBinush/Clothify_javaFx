@@ -18,15 +18,15 @@
 
 <AnchorPane fx:id="ancLogin" prefHeight="755.0" prefWidth="1202.0" style="-fx-background-color: f0f0f0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.dashboard.AdminDashboardFormController">
    <children>
-      <Region layoutX="19.0" layoutY="18.0" prefHeight="716.0" prefWidth="258.0" style="-fx-background-color: fceeff; -fx-background-radius: 15px; -fx-border-color: white; -fx-border-radius: 15px; -fx-background-size: 3px;" />
+      <Region layoutX="19.0" layoutY="18.0" prefHeight="716.0" prefWidth="258.0" style="-fx-background-color: purple; -fx-background-radius: 15px; -fx-border-color: white; -fx-border-radius: 15px; -fx-background-size: 3px;" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/logo2.png" />
+            <Image url="@../../img/logo3.png" />
          </image>
       </ImageView>
       <AnchorPane fx:id="anc2" layoutX="277.0" layoutY="82.0" prefHeight="674.0" prefWidth="926.0" style="-fx-background-color: f0f0f0;">
          <children>
-            <Label layoutX="42.0" layoutY="19.0" text="Dashboard">
+            <Label layoutX="42.0" layoutY="19.0" text="Dashboard" textFill="PURPLE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
@@ -72,17 +72,17 @@
             <Region layoutX="36.0" layoutY="247.0" prefHeight="398.0" prefWidth="396.0" style="-fx-background-color: white; -fx-background-radius: 15px;" />
             <Region layoutX="447.0" layoutY="256.0" prefHeight="190.0" prefWidth="459.0" style="-fx-background-color: white; -fx-background-radius: 15px;" />
             <Region layoutX="447.0" layoutY="454.0" prefHeight="190.0" prefWidth="459.0" style="-fx-background-color: white; -fx-background-radius: 15px;" />
-            <Label layoutX="47.0" layoutY="256.0" text="Monthly Sales">
+            <Label layoutX="47.0" layoutY="256.0" text="Monthly Sales" textFill="PURPLE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="461.0" layoutY="465.0" text="Trending Today">
+            <Label layoutX="461.0" layoutY="465.0" text="Trending Today" textFill="PURPLE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="461.0" layoutY="261.0" text="Best Perfomance">
+            <Label layoutX="461.0" layoutY="261.0" text="Best Perfomance" textFill="PURPLE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -259,7 +259,7 @@
       </Button>
       <Line endX="100.0" startX="-100.0" />
       <Line endX="100.0" layoutX="148.0" layoutY="558.0" startX="-100.0" stroke="PURPLE" />
-      <Button layoutX="58.0" layoutY="671.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: red; -fx-background-radius: 15px;" text="Logout" textFill="WHITE">
+      <Button fx:id="btnLogout" layoutX="58.0" layoutY="671.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: red; -fx-background-radius: 15px;" text="Logout" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -267,15 +267,15 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Region layoutX="301.0" layoutY="18.0" prefHeight="49.0" prefWidth="890.0" style="-fx-background-color: fceeff; -fx-background-radius: 15px; -fx-border-color: white; -fx-background-size: 3px; -fx-border-radius: 15px;" />
-      <Label layoutX="321.0" layoutY="30.0" text="Welcome to Clothify Store">
+      <Region layoutX="301.0" layoutY="18.0" prefHeight="49.0" prefWidth="890.0" style="-fx-background-color: purple; -fx-background-radius: 15px; -fx-border-color: white; -fx-background-size: 3px; -fx-border-radius: 15px;" />
+      <Label layoutX="321.0" layoutY="30.0" text="Welcome to Clothify Store" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="1143.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/details.png" />
+            <Image url="@../../img/avotor/Employee-male.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -283,7 +283,7 @@
       </ImageView>
       <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="1106.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/notification.png" />
+            <Image url="@../../img/notification_white.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

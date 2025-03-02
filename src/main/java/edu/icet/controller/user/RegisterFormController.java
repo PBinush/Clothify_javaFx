@@ -63,7 +63,7 @@ public class RegisterFormController {
                 Double.parseDouble(txtSalary.getText())
         );
         if (userService.saveUser(user)){
-            new Alert(Alert.AlertType.INFORMATION,"user registration successfully").show();
+            new Alert(Alert.AlertType.INFORMATION,"registration successfully").show();
         }else {
             new Alert(Alert.AlertType.ERROR).show();
         }

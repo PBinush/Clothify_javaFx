@@ -17,6 +17,7 @@ import lombok.ToString;
 public class EmployeeEntity {
     @Id
     private String id;
+    private String title;
     private String name;
     private String position;
     private String address;

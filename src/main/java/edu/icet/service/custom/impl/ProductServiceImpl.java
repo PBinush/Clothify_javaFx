@@ -108,4 +108,9 @@ public class ProductServiceImpl implements ProductService {
         return false;
     }
 
+    @Override
+    public boolean deleteProduct(String id) {
+        return productDao.delete(id);
+    }
+
 }

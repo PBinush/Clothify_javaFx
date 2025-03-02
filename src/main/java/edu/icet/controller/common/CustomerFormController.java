@@ -1,9 +1,9 @@
-package edu.icet.controller.admin;
+package edu.icet.controller.common;
 
 import edu.icet.controller.cards.E_S_C_CardController;
-import edu.icet.dto.Employee;
+import edu.icet.dto.Customer;
 import edu.icet.service.ServiceFactory;
-import edu.icet.service.custom.EmployeeService;
+import edu.icet.service.custom.CustomerService;
 import edu.icet.util.ServiceType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,15 +25,12 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class EmployeeFormController implements Initializable {
+public class CustomerFormController implements Initializable {
     @FXML
-    public TextField txtPosition;
+    public GridPane customerCardContainer;
 
     @FXML
     public ComboBox cmbTitle;
-
-    @FXML
-    public GridPane employeeCardContainer;
 
     @FXML
     private AnchorPane anc2;
@@ -59,37 +56,39 @@ public class EmployeeFormController implements Initializable {
     @FXML
     private TextField txtSearch;
 
-    List<Employee> employeeList;
-    final EmployeeService employeeService = ServiceFactory.getInstance().getServiceTpe(ServiceType.EMPLOYEE);
+    List<Customer> customerList;
+    final CustomerService customerService = ServiceFactory.getInstance().getServiceTpe(ServiceType.CUSTOMERS);
+
     @FXML
     void btnAddOnAction(ActionEvent event) {
-        Employee employee = new Employee(
+        CustomerService serviceTpe = ServiceFactory.getInstance().getServiceTpe(ServiceType.CUSTOMERS);
+        Customer customer = new Customer(
                 null,
                 cmbTitle.getValue().toString(),
                 txtName.getText(),
-                txtPosition.getText(),
                 txtAddress.getText(),
                 txtNumber.getText(),
                 txtEmail.getText()
         );
-        EmployeeService serviceTpe = ServiceFactory.getInstance().getServiceTpe(ServiceType.EMPLOYEE);
-        if (serviceTpe.saveEmployee(employee)){
-            new Alert(Alert.AlertType.INFORMATION,"employee added successfully").show();
+        if (serviceTpe.saveCustomer(customer)){
+            new Alert(Alert.AlertType.INFORMATION,"customer added successfully").show();
         }else {
             new Alert(Alert.AlertType.ERROR).show();
         }
-        loadEmployee();
+        loadCustomer();
+        clearCartDetails();
     }
+
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-        if(employeeService.deleteEmployee(lblID.getText())){
+        if(customerService.deleteCustomer(lblID.getText())){
             new Alert(Alert.AlertType.ERROR,"Delete Successfully : "+lblID.getText()).show();
         }else {
             new Alert(Alert.AlertType.ERROR).show();
         }
-        loadEmployee();
-        clearCartDetail();
+        loadCustomer();
+        clearCartDetails();
     }
 
     @FXML
@@ -99,54 +98,45 @@ public class EmployeeFormController implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        Employee employee = new Employee(
+        CustomerService serviceTpe = ServiceFactory.getInstance().getServiceTpe(ServiceType.CUSTOMERS);
+        Customer customer = new Customer(
                 lblID.getText(),
                 cmbTitle.getValue().toString(),
                 txtName.getText(),
-                txtPosition.getText(),
                 txtAddress.getText(),
                 txtNumber.getText(),
                 txtEmail.getText()
         );
-        if (employeeService.updateEmployee(employee)){
+        if (customerService.updateCustomer(customer)){
             new Alert(Alert.AlertType.INFORMATION,"Update Successful").show();
         }else {
             new Alert(Alert.AlertType.ERROR).show();
         }
-        loadEmployee();
-        clearCartDetail();
+        loadCustomer();
+        clearCartDetails();
     }
 
-    public void clearCartDetail(){
-        txtName.clear();
-        txtNumber.clear();
-        txtEmail.clear();
-        txtPosition.clear();
-        txtAddress.clear();
-        cmbTitle.setValue(null);
-    }
-
-    public void loadEmployee(){
-        employeeList = employeeService.getAllEmployee();
+    public void loadCustomer(){
+        customerList = customerService.getAllCustomers();
 
         int column = 0;
         int row = 1;
 
         try {
-            for (Employee employee : employeeList) {
+            for (Customer customer : customerList) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/view/cards/e_s_c_card.fxml"));
                 VBox cardBox = fxmlLoader.load();
                 E_S_C_CardController e_s_c_cardController = fxmlLoader.getController();
-                e_s_c_cardController.setData2(employee);
-                e_s_c_cardController.setOnCardClick(this::handleSupplierCardClick);
+                e_s_c_cardController.setData(customer);
+                e_s_c_cardController.setOnCardClick(this::handleCustomerCardClick);
 
                 if (column == 3) {
                     column = 0;
                     ++row;
                 }
 
-                employeeCardContainer.add(cardBox, column++, row);
+                customerCardContainer.add(cardBox, column++, row);
                 GridPane.setMargin(cardBox, new Insets(3));
             }
         } catch (Exception e) {
@@ -154,26 +144,33 @@ public class EmployeeFormController implements Initializable {
         }
     }
 
-    private void handleSupplierCardClick(String employeeId) {
-        System.out.println("Clicked Customer ID: " + employeeId);
-        loadDetails(employeeId);
+    private void handleCustomerCardClick(String productId) {
+        System.out.println("Clicked Customer ID: " + productId);
+        loadDetails(productId);
+    }
+
+    public void clearCartDetails(){
+        txtName.clear();
+        txtAddress.clear();
+        txtEmail.clear();
+        txtNumber.clear();
+        cmbTitle.setValue(null);
     }
 
     public void loadDetails(String id){
-        Employee employeeById = employeeService.getEmployeeById(id);
-        cmbTitle.setValue(employeeById.getTitle());
-        txtName.setText(employeeById.getName());
-        txtAddress.setText(employeeById.getAddress());
-        txtEmail.setText(employeeById.getEmail());
-        txtPosition.setText(employeeById.getPosition());
-        txtNumber.setText(employeeById.getPhoneNumber());
-        lblID.setText(employeeById.getId());
-        if (employeeById.getTitle().equals("Mr")) {
+        Customer customerById = customerService.getCustomerById(id);
+        txtName.setText(customerById.getName());
+        txtAddress.setText(customerById.getAddress());
+        txtEmail.setText(customerById.getEmail());
+        txtNumber.setText(customerById.getPhoneNumber());
+        lblID.setText(customerById.getId());
+        if (customerById.getTitle().equals("Mr")) {
             imgAvotor.setImage(new Image("D://Git Project//ClothifyStore//src//main//resources//img//avotor//Employee-male.png"));
         }else {
             imgAvotor.setImage(new Image("D://Git Project//ClothifyStore//src//main//resources//img//avotor//employee-female.png"));
         }
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> titleList = FXCollections.observableArrayList();
@@ -182,7 +179,7 @@ public class EmployeeFormController implements Initializable {
         titleList.add("Mrs");
         cmbTitle.setItems(titleList);
 
-        lblID.setText(employeeService.genarateId());
-       loadEmployee();
+        lblID.setText(customerService.genarateId());
+        loadCustomer();
     }
 }

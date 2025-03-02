@@ -32,7 +32,6 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
                 orderDetails.add(modelMapper.map(entity, OrderDetails.class));
             }
         }
-
         return orderDetails;
     }
 }

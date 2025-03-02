@@ -1,7 +1,6 @@
 package edu.icet.controller.common;
 
 import edu.icet.controller.cards.E_S_C_CardController;
-import edu.icet.dto.Customer;
 import edu.icet.dto.Supplier;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.ProductService;
@@ -23,7 +22,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -67,6 +65,83 @@ public class SupplierFormController implements Initializable {
     final SupplierService supplierService = ServiceFactory.getInstance().getServiceTpe(ServiceType.SUPPLIER);
     final ProductService productService = ServiceFactory.getInstance().getServiceTpe(ServiceType.PRODUCT);
 
+    @FXML
+    void btnAddOnAction(ActionEvent event) {
+        Supplier supplier = new Supplier(
+                null,
+                cmbTitle.getValue().toString(),
+                txtName.getText(),
+                txtCompany.getText(),
+                txtEmail.getText(),
+                cmbItems.getValue().toString()
+        );
+        if (supplierService.saveSupplier(supplier)){
+            new Alert(Alert.AlertType.INFORMATION,"Supplier Added Successful").show();
+        }else {
+            new Alert(Alert.AlertType.ERROR).show();
+        }
+        lblID.setText(supplierService.genarateId());
+        loadSupplier();
+        clearCartDetail();
+    }
+
+    @FXML
+    void btnDeleteOnAction(ActionEvent event) {
+        if(supplierService.deleteSupplier(lblID.getText())){
+            new Alert(Alert.AlertType.ERROR,"Delete Successfully : "+lblID.getText()).show();
+        }else {
+            new Alert(Alert.AlertType.ERROR).show();
+        }
+        loadSupplier();
+        clearCartDetail();
+    }
+
+    @FXML
+    void btnSearchOnAction(ActionEvent event) {
+    }
+
+    @FXML
+    void btnUpdateOnAction(ActionEvent event) {
+        Supplier supplier = new Supplier(
+                lblID.getText(),
+                cmbTitle.getValue().toString(),
+                txtName.getText(),
+                txtCompany.getText(),
+                txtEmail.getText(),
+                cmbItems.getValue().toString()
+        );
+        if (supplierService.updateSupplier(supplier)){
+            new Alert(Alert.AlertType.INFORMATION,"Update Successful").show();
+        }else {
+            new Alert(Alert.AlertType.ERROR).show();
+        }
+        loadSupplier();
+        clearCartDetail();
+    }
+
+    public void loadDetails(String id){
+        Supplier supplierById = supplierService.getSupplierById(id);
+        cmbTitle.setValue(supplierById.getTitle());
+        txtName.setText(supplierById.getName());
+        txtCompany.setText(supplierById.getCompany());
+        txtEmail.setText(supplierById.getEmail());
+        cmbItems.setValue(supplierById.getProduct());
+        lblID.setText(supplierById.getId());
+        if (supplierById.getTitle().equals("Mr")) {
+            imgAvotor.setImage(new Image("D://Git Project//ClothifyStore//src//main//resources//img//avotor//Employee-male.png"));
+        }else {
+            imgAvotor.setImage(new Image("D://Git Project//ClothifyStore//src//main//resources//img//avotor//employee-female.png"));
+        }
+    }
+
+    public void clearCartDetail(){
+        txtName.clear();
+        txtCompany.clear();
+        txtEmail.clear();
+        cmbItems.setValue(null);
+        cmbTitle.setValue(null);
+    }
+
     public void loadSupplier(){
         supplierList = supplierService.getAllSuppliers();
 
@@ -98,76 +173,6 @@ public class SupplierFormController implements Initializable {
     private void handleSupplierCardClick(String productId) {
         System.out.println("Clicked Customer ID: " + productId);
         loadDetails(productId);
-    }
-
-    @FXML
-    void btnAddOnAction(ActionEvent event) {
-        Supplier supplier = new Supplier(
-                null,
-                cmbTitle.getValue().toString(),
-                txtName.getText(),
-                txtCompany.getText(),
-                txtEmail.getText(),
-                cmbItems.getValue().toString()
-        );
-        if (supplierService.saveSupplier(supplier)){
-            new Alert(Alert.AlertType.INFORMATION,"Supplier Added Successful").show();
-        }else {
-            new Alert(Alert.AlertType.ERROR).show();
-        }
-        loadSupplier();
-    }
-
-    @FXML
-    void btnDeleteOnAction(ActionEvent event) {
-        supplierService.deleteSupplier(lblID.getText());
-        System.out.println(lblID.getText());
-        loadSupplier();
-    }
-
-    @FXML
-    void btnSearchOnAction(ActionEvent event) {
-    }
-
-    @FXML
-    void btnUpdateOnAction(ActionEvent event) {
-        Supplier supplier = new Supplier(
-                null,
-                cmbTitle.getValue().toString(),
-                txtName.getText(),
-                txtCompany.getText(),
-                txtEmail.getText(),
-                cmbItems.getValue().toString()
-        );
-        if (supplierService.updateSupplier(supplier)){
-            new Alert(Alert.AlertType.INFORMATION,"Supplier Update Successful").show();
-        }else {
-            new Alert(Alert.AlertType.ERROR).show();
-        }
-        loadSupplier();
-    }
-
-    public void clearCartDetails(){
-        txtName.clear();
-        cmbTitle.setValue(null);
-        cmbItems.setValue(null);
-        txtCompany.clear();
-        txtEmail.clear();
-    }
-
-    public void loadDetails(String id){
-        Supplier supplierById = supplierService.getSupplierById(id);
-        cmbTitle.setValue(supplierById.getTitle());
-        txtName.setText(supplierById.getName());
-        txtCompany.setText(supplierById.getCompany());
-        txtEmail.setText(supplierById.getEmail());
-//        cmbItems.setValue(supplierById.);
-        lblID.setText(supplierById.getId());
-        if (supplierById.getTitle().equals("Mr")) {
-            imgAvotor.setImage(new Image("D://Git Project//ClothifyStore//src//main//resources//img//avotor//customer-male.png"));
-        }else {
-            imgAvotor.setImage(new Image("D://Git Project//ClothifyStore//src//main//resources//img//avotor//customer-female.png"));
-        }
     }
 
     @Override

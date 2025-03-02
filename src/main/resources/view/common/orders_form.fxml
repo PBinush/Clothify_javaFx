@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anc2" prefHeight="674.0" prefWidth="926.0" style="-fx-background-color: f0f0f0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.common.CustomerFormControlller">
+<AnchorPane fx:id="anc2" prefHeight="674.0" prefWidth="926.0" style="-fx-background-color: f0f0f0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.common.CustomerFormController">
    <children>
       <Label layoutX="42.0" layoutY="19.0" text="Orders">
          <font>

@@ -11,6 +11,7 @@ import lombok.ToString;
 @ToString
 public class Customer {
     private String id;
+    private String title;
     private String name;
     private String address;
     private String phoneNumber;

@@ -2,22 +2,34 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anc2" prefHeight="674.0" prefWidth="926.0" style="-fx-background-color: f0f0f0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.admin.EmployeeFormController">
    <children>
-      <ScrollPane layoutX="10.0" layoutY="141.0" prefHeight="504.0" prefWidth="547.0" style="-fx-background-color: white; -fx-background-radius: 15px;">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-        </content>
-      </ScrollPane>
+
+      <AnchorPane layoutX="43.0" layoutY="184.0" prefHeight="470.0" prefWidth="538.0" style="-fx-background-radius: 15px;">
+         <children>
+            <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="-28.0" layoutY="-41.0" pannable="true" prefHeight="504.0" prefWidth="550.0" style="-fx-background-color: transparent;" styleClass="transparent" stylesheets="@../../css/style.css">
+               <content>
+                  <GridPane fx:id="employeeCardContainer" prefHeight="477.0" prefWidth="549.0">
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
       <Label layoutX="42.0" layoutY="19.0" text="Employee Management" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -34,23 +46,17 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Region layoutX="54.0" layoutY="161.0" prefHeight="143.0" prefWidth="122.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
-      <Region layoutX="224.0" layoutY="161.0" prefHeight="176.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
-      <Region layoutX="394.0" layoutY="161.0" prefHeight="176.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
-      <Region layoutX="54.0" layoutY="362.0" prefHeight="176.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
-      <Region layoutX="224.0" layoutY="362.0" prefHeight="176.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
-      <Region layoutX="394.0" layoutY="362.0" prefHeight="176.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
       <Label layoutX="582.0" layoutY="151.0" text="Employee details" textFill="PURPLE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgAvotor" fitHeight="136.0" fitWidth="136.0" layoutX="668.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgAvotor" fitHeight="107.0" fitWidth="110.0" layoutX="689.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/avotor/Employee-male.png" />
          </image>
       </ImageView>
-      <Label layoutX="608.0" layoutY="346.0" prefHeight="26.0" prefWidth="21.0" text="ID ">
+      <Label layoutX="608.0" layoutY="317.0" prefHeight="26.0" prefWidth="21.0" text="ID ">
          <font>
             <Font size="16.0" />
          </font>
@@ -110,7 +116,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label fx:id="lblID" layoutX="672.0" layoutY="345.0" prefHeight="26.0" prefWidth="62.0" text="E001" textFill="PURPLE">
+      <Label fx:id="lblID" layoutX="672.0" layoutY="316.0" prefHeight="26.0" prefWidth="62.0" text="E001" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
@@ -125,5 +131,11 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
+      <Label layoutX="608.0" layoutY="349.0" prefHeight="26.0" prefWidth="42.0" text="Title">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbTitle" layoutX="670.0" layoutY="342.0" prefHeight="26.0" prefWidth="94.0" promptText="title" />
    </children>
 </AnchorPane>

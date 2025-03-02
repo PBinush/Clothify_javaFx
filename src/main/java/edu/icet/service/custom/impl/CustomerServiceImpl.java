@@ -7,7 +7,6 @@ import edu.icet.entity.CustomerEntity;
 import edu.icet.service.custom.CustomerService;
 import edu.icet.util.DaoType;
 import org.modelmapper.ModelMapper;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,5 +53,19 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer getCustomerById(String id) {
         CustomerEntity customerById = customerDao.getCustomerById(id);
         return new ModelMapper().map(customerById,Customer.class);
+    }
+
+    @Override
+    public boolean deleteCustomer(String id) {
+        return customerDao.delete(id);
+    }
+
+    @Override
+    public boolean updateCustomer(Customer customer) {
+        CustomerEntity map = new ModelMapper().map(customer, CustomerEntity.class);
+        if (customerDao.update(map)){
+            return true;
+        }
+        return false;
     }
 }

@@ -17,6 +17,7 @@ import lombok.ToString;
 public class CustomerEntity {
     @Id
     private String id;
+    private String title;
     private String name;
     private String address;
     private String phoneNumber;

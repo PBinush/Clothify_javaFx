@@ -1,6 +1,7 @@
 package edu.icet.controller.cards;
 
 import edu.icet.dto.Customer;
+import edu.icet.dto.Employee;
 import edu.icet.dto.Supplier;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -36,6 +37,12 @@ public class E_S_C_CardController {
         cardId=supplier.getId();
         lblId.setText(supplier.getId());
         lblName.setText(supplier.getName());
+    }
+
+    public void  setData2(Employee employee){
+        cardId=employee.getId();
+        lblId.setText(employee.getId());
+        lblName.setText(employee.getName());
     }
 
     public void setOnCardClick(Consumer<String> listener) {

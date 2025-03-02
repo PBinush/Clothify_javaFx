@@ -5,4 +5,5 @@ import edu.icet.service.SuperService;
 
 public interface UserService extends SuperService {
     boolean saveUser(User user);
+    boolean updateUser(User user);
 }

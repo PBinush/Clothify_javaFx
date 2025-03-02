@@ -34,7 +34,20 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public boolean delete(String id) {
-        return false;
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            ProductEntity productEntity = session.get(ProductEntity.class, id);
+            session.delete(productEntity);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -42,9 +55,8 @@ public class ProductDaoImpl implements ProductDao {
         Session session = HibernateUtil.getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            session.persist(productEntity);
+            session.update(productEntity);
             transaction.commit();
-            System.out.println(productEntity);
             return true;
         } catch (Exception e) {
             transaction.rollback();

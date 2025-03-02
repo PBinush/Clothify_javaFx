@@ -1,9 +1,7 @@
 package edu.icet.service.custom;
 
-import edu.icet.dto.Customer;
 import edu.icet.dto.Supplier;
 import edu.icet.service.SuperService;
-
 import java.util.List;
 
 public interface SupplierService extends SuperService {

@@ -10,6 +10,8 @@
      -fx-background-color: purple;
      -fx-text-fill: white;
      -fx-background-radius:15px;
+     -fx-border-color:white;
+     -fx-border-radius:15px;
  }
 
 button:pressed {
