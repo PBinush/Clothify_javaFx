@@ -10,12 +10,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Region?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anc2" prefHeight="674.0" prefWidth="926.0" style="-fx-background-color: f0f0f0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.common.CustomerFormController">
+<AnchorPane fx:id="anc2" prefHeight="674.0" prefWidth="926.0" style="-fx-background-color: f0f0f0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.common.OrdersFormController">
    <children>
-      <Label layoutX="42.0" layoutY="19.0" text="Orders">
+      <Label layoutX="42.0" layoutY="19.0" text="Orders" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -37,31 +36,39 @@
       <Region layoutX="54.0" layoutY="362.0" prefHeight="176.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
       <Region layoutX="224.0" layoutY="362.0" prefHeight="176.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
       <Region layoutX="394.0" layoutY="362.0" prefHeight="176.0" prefWidth="152.0" style="-fx-background-color: f0f0f0; -fx-background-radius: 15px;" />
-      <Label layoutX="607.0" layoutY="151.0" text="Order Customer">
+      <Label layoutX="607.0" layoutY="151.0" text="Order Customer" textFill="PURPLE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Circle fill="WHITE" layoutX="751.0" layoutY="272.0" opacity="0.73" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
-      <ImageView fx:id="imgAvotor" fitHeight="137.0" fitWidth="131.0" layoutX="685.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../img/avotor/customer-male.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="lblID" layoutX="720.0" layoutY="375.0" prefHeight="26.0" prefWidth="62.0" text="C001" textFill="#6b376b">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
-      <TableView layoutX="18.0" layoutY="142.0" prefHeight="504.0" prefWidth="561.0" style="-fx-background-color: white; -fx-background-radius: 15px;">
+      <TableView fx:id="tblOrder" layoutX="18.0" layoutY="142.0" prefHeight="504.0" prefWidth="561.0" style="-fx-background-color: white; -fx-background-radius: 15px;">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="colOrderId" prefWidth="75.0" text="OrderID" />
+          <TableColumn fx:id="colDateAndTime" prefWidth="187.2000274658203" text="Date&amp;Time" />
+            <TableColumn fx:id="colCustId" prefWidth="67.20001220703125" text="CustId" />
+            <TableColumn fx:id="colEmpId" prefWidth="72.800048828125" text="EmpId" />
+            <TableColumn fx:id="colItems" prefWidth="160.79998779296875" text="items" />
         </columns>
       </TableView>
-      <Label fx:id="lblID1" alignment="CENTER" layoutX="615.0" layoutY="423.0" prefHeight="26.0" prefWidth="266.0" text="Ruwan Chinthaka" textFill="#7b117b">
+      <Region layoutX="630.0" layoutY="198.0" prefHeight="340.0" prefWidth="243.0" style="-fx-background-color: fceeff; -fx-background-radius: 10px;" />
+      <ImageView fx:id="imgAvotor" fitHeight="137.0" fitWidth="131.0" layoutX="686.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/cartdetails/cart_person.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblID" layoutX="730.0" layoutY="358.0" prefHeight="27.0" prefWidth="42.0" text="C001" textFill="#6b376b">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblID12" alignment="CENTER" layoutX="615.0" layoutY="445.0" prefHeight="26.0" prefWidth="266.0" text="0785678928" textFill="GREEN">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblID1" alignment="CENTER" layoutX="615.0" layoutY="383.0" prefHeight="26.0" prefWidth="266.0" text="Ruwan Chinthaka" textFill="#7b117b">
+         <font>
+            <Font size="14.0" />
          </font>
          <opaqueInsets>
             <Insets />
@@ -70,23 +77,17 @@
             <Insets left="30.0" right="20.0" />
          </padding>
       </Label>
-      <Label fx:id="lblID11" alignment="CENTER" layoutX="617.0" layoutY="452.0" prefHeight="26.0" prefWidth="266.0" text="Galle,Yakkalamulla,nakiyadeniya" textFill="#7b117b">
+      <Label fx:id="lblID11" alignment="CENTER" layoutX="617.0" layoutY="405.0" prefHeight="26.0" prefWidth="266.0" text="Galle,Yakkalamulla" textFill="#7b117b">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblID13" alignment="CENTER" layoutX="618.0" layoutY="476.0" prefHeight="26.0" prefWidth="266.0" text="ruwan12@gmail.com" textFill="RED">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Region layoutX="630.0" layoutY="491.0" prefHeight="100.0" prefWidth="243.0" style="-fx-background-color: fceeff; -fx-background-radius: 15px;" />
-      <Label fx:id="lblID12" alignment="CENTER" layoutX="615.0" layoutY="510.0" prefHeight="26.0" prefWidth="266.0" text="0785678928" textFill="GREEN">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblID13" alignment="CENTER" layoutX="615.0" layoutY="551.0" prefHeight="26.0" prefWidth="266.0" text="ruwan12@gmail.com" textFill="RED">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <Button layoutX="686.0" layoutY="598.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="131.0" style="-fx-background-color: purple; -fx-background-radius: 12px;" text="Send Slip" textFill="WHITE">
+      <Button layoutX="676.0" layoutY="576.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="152.0" style="-fx-background-color: purple; -fx-background-radius: 5px;" text="return Order" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

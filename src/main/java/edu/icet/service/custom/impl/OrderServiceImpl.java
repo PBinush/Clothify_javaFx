@@ -16,7 +16,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public boolean saveOrder(Order order) {
         OrderEntity map = new ModelMapper().map(order,OrderEntity.class);
-        map.setId(genarateId());
+//        map.setId(genarateId());
         if (orderDao.save(map)){
             return true;
         }

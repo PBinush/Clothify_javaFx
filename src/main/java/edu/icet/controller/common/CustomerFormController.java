@@ -164,6 +164,7 @@ public class CustomerFormController implements Initializable {
         txtEmail.setText(customerById.getEmail());
         txtNumber.setText(customerById.getPhoneNumber());
         lblID.setText(customerById.getId());
+        cmbTitle.setValue(customerById.getTitle());
         if (customerById.getTitle().equals("Mr")) {
             imgAvotor.setImage(new Image("D://Git Project//ClothifyStore//src//main//resources//img//avotor//Employee-male.png"));
         }else {

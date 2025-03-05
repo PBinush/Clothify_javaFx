@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anc2" prefHeight="674.0" prefWidth="926.0" style="-fx-background-color: f0f0f0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.common.SupplierFormController">
@@ -29,7 +28,7 @@
                </content>
             </ScrollPane>
          </children></AnchorPane>
-      <Label layoutX="42.0" layoutY="19.0" text="Supplier Management">
+      <Label layoutX="42.0" layoutY="19.0" text="Supplier Management" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -45,33 +44,27 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Label layoutX="582.0" layoutY="151.0" text="Supplier details">
+      <Label layoutX="582.0" layoutY="151.0" text="Supplier details" textFill="PURPLE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Circle fill="WHITE" layoutX="734.0" layoutY="249.0" opacity="0.73" radius="71.0" stroke="BLACK" strokeType="INSIDE" />
-      <ImageView fx:id="imgAvotor" fitHeight="117.0" fitWidth="113.0" layoutX="677.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../img/avotor/customer-male.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="597.0" layoutY="324.0" prefHeight="26.0" prefWidth="21.0" text="ID ">
+      <Label layoutX="597.0" layoutY="324.0" prefHeight="26.0" prefWidth="21.0" text="ID " textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="596.0" layoutY="429.0" prefHeight="26.0" prefWidth="74.0" text="Company">
+      <Label layoutX="596.0" layoutY="429.0" prefHeight="26.0" prefWidth="74.0" text="Company" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="595.0" layoutY="509.0" prefHeight="26.0" prefWidth="53.0" text="Item">
+      <Label layoutX="595.0" layoutY="509.0" prefHeight="26.0" prefWidth="53.0" text="Item" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="595.0" layoutY="470.0" prefHeight="26.0" prefWidth="53.0" text="Email">
+      <Label layoutX="595.0" layoutY="470.0" prefHeight="26.0" prefWidth="53.0" text="Email" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
@@ -103,11 +96,11 @@
       </TextField>
       <Label fx:id="lblID" layoutX="672.0" layoutY="323.0" prefHeight="26.0" prefWidth="62.0" text="S001" textFill="PURPLE">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <ComboBox fx:id="cmbItems" layoutX="670.0" layoutY="508.0" prefHeight="26.0" prefWidth="199.0" promptText="select cloths" style="-fx-background-color: white;" />
-      <Label layoutX="596.0" layoutY="393.0" prefHeight="26.0" prefWidth="74.0" text="Name">
+      <Label layoutX="596.0" layoutY="393.0" prefHeight="26.0" prefWidth="74.0" text="Name" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
@@ -117,11 +110,16 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label layoutX="595.0" layoutY="355.0" prefHeight="26.0" prefWidth="74.0" text="Title">
+      <Label layoutX="595.0" layoutY="355.0" prefHeight="26.0" prefWidth="74.0" text="Title" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
       <ComboBox fx:id="cmbTitle" layoutX="670.0" layoutY="355.0" prefHeight="26.0" prefWidth="74.0" promptText="Mr" style="-fx-background-color: white;" />
+      <ImageView fx:id="imgAvotor" fitHeight="134.0" fitWidth="149.0" layoutX="675.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/cartdetails/cart_person.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

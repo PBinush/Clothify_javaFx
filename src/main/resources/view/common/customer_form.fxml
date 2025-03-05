@@ -29,7 +29,7 @@
             </ScrollPane>
          </children>
       </AnchorPane>
-      <Label layoutX="42.0" layoutY="19.0" text="Customer Management">
+      <Label layoutX="42.0" layoutY="19.0" text="Customer Management" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -45,37 +45,37 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Label layoutX="582.0" layoutY="151.0" text="Customer details">
+      <Label layoutX="582.0" layoutY="151.0" text="Customer details" textFill="PURPLE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgAvotor" fitHeight="153.0" fitWidth="152.0" layoutX="658.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgAvotor" fitHeight="134.0" fitWidth="149.0" layoutX="675.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/cartdetails/cart_person.png" />
          </image>
       </ImageView>
-      <Label layoutX="608.0" layoutY="342.0" prefHeight="26.0" prefWidth="21.0" text="ID ">
+      <Label layoutX="608.0" layoutY="342.0" prefHeight="26.0" prefWidth="21.0" text="ID " textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="607.0" layoutY="403.0" prefHeight="26.0" prefWidth="42.0" text="Name">
+      <Label layoutX="607.0" layoutY="403.0" prefHeight="26.0" prefWidth="42.0" text="Name" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="605.0" layoutY="436.0" prefHeight="26.0" prefWidth="61.0" text="Address">
+      <Label layoutX="605.0" layoutY="436.0" prefHeight="26.0" prefWidth="61.0" text="Address" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="606.0" layoutY="470.0" prefHeight="26.0" prefWidth="53.0" text="Phone">
+      <Label layoutX="606.0" layoutY="470.0" prefHeight="26.0" prefWidth="53.0" text="Phone" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="606.0" layoutY="503.0" prefHeight="26.0" prefWidth="53.0" text="Email">
+      <Label layoutX="606.0" layoutY="503.0" prefHeight="26.0" prefWidth="53.0" text="Email" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
@@ -117,10 +117,10 @@
       </TextField>
       <Label fx:id="lblID" layoutX="672.0" layoutY="341.0" prefHeight="26.0" prefWidth="62.0" text="C001" textFill="PURPLE">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="607.0" layoutY="370.0" prefHeight="26.0" prefWidth="42.0" text="Title">
+      <Label layoutX="607.0" layoutY="370.0" prefHeight="26.0" prefWidth="42.0" text="Title" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>

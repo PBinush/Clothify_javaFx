@@ -51,32 +51,27 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgAvotor" fitHeight="107.0" fitWidth="110.0" layoutX="689.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../img/avotor/Employee-male.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="608.0" layoutY="317.0" prefHeight="26.0" prefWidth="21.0" text="ID ">
+      <Label layoutX="608.0" layoutY="317.0" prefHeight="26.0" prefWidth="21.0" text="ID " textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="607.0" layoutY="376.0" prefHeight="26.0" prefWidth="42.0" text="Name">
+      <Label layoutX="607.0" layoutY="376.0" prefHeight="26.0" prefWidth="42.0" text="Name" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="605.0" layoutY="441.0" prefHeight="26.0" prefWidth="61.0" text="Address">
+      <Label layoutX="605.0" layoutY="441.0" prefHeight="26.0" prefWidth="61.0" text="Address" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="606.0" layoutY="479.0" prefHeight="26.0" prefWidth="53.0" text="Phone">
+      <Label layoutX="606.0" layoutY="479.0" prefHeight="26.0" prefWidth="53.0" text="Phone" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="606.0" layoutY="511.0" prefHeight="26.0" prefWidth="53.0" text="Email">
+      <Label layoutX="606.0" layoutY="511.0" prefHeight="26.0" prefWidth="53.0" text="Email" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
@@ -118,10 +113,10 @@
       </TextField>
       <Label fx:id="lblID" layoutX="672.0" layoutY="316.0" prefHeight="26.0" prefWidth="62.0" text="E001" textFill="PURPLE">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="605.0" layoutY="408.0" prefHeight="26.0" prefWidth="61.0" text="Position">
+      <Label layoutX="605.0" layoutY="408.0" prefHeight="26.0" prefWidth="61.0" text="Position" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
@@ -131,11 +126,16 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label layoutX="608.0" layoutY="349.0" prefHeight="26.0" prefWidth="42.0" text="Title">
+      <Label layoutX="608.0" layoutY="349.0" prefHeight="26.0" prefWidth="42.0" text="Title" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
       <ComboBox fx:id="cmbTitle" layoutX="670.0" layoutY="342.0" prefHeight="26.0" prefWidth="94.0" promptText="title" />
+      <ImageView fx:id="imgAvotor" fitHeight="134.0" fitWidth="149.0" layoutX="675.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/cartdetails/cart_person.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

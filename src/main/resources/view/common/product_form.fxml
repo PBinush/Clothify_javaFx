@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="anc2" prefHeight="674.0" prefWidth="926.0" style="-fx-background-color: f0f0f0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.common.ProductFormController">
@@ -29,7 +28,7 @@
                  </content>
              </ScrollPane>
          </children></AnchorPane>
-      <Label layoutX="42.0" layoutY="19.0" text="Products Management">
+      <Label layoutX="42.0" layoutY="19.0" text="Products Management" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -45,38 +44,37 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Label layoutX="582.0" layoutY="151.0" text="Product details">
+      <Label layoutX="582.0" layoutY="151.0" text="Product details" textFill="PURPLE">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Circle fill="WHITE" layoutX="742.0" layoutY="250.0" opacity="0.73" radius="66.0" stroke="BLACK" strokeType="INSIDE" />
-      <ImageView fx:id="imgAvotor" fitHeight="107.0" fitWidth="111.0" layoutX="692.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgAvotor" fitHeight="107.0" fitWidth="111.0" layoutX="677.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/cloths/shirts.png" />
+            <Image url="@../../img/cartdetails/cart_product.png" />
          </image>
       </ImageView>
-      <Label layoutX="599.0" layoutY="328.0" prefHeight="26.0" prefWidth="21.0" text="ID ">
+      <Label layoutX="599.0" layoutY="328.0" prefHeight="26.0" prefWidth="21.0" text="ID " textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="598.0" layoutY="362.0" prefHeight="26.0" prefWidth="42.0" text="Name">
+      <Label layoutX="598.0" layoutY="362.0" prefHeight="26.0" prefWidth="42.0" text="Name" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="598.0" layoutY="394.0" prefHeight="26.0" prefWidth="61.0" text="Size">
+      <Label layoutX="598.0" layoutY="394.0" prefHeight="26.0" prefWidth="61.0" text="Size" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="600.0" layoutY="432.0" prefHeight="26.0" prefWidth="53.0" text="Qty">
+      <Label layoutX="600.0" layoutY="432.0" prefHeight="26.0" prefWidth="53.0" text="Qty" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="601.0" layoutY="503.0" prefHeight="26.0" prefWidth="53.0" text="Price">
+      <Label layoutX="601.0" layoutY="503.0" prefHeight="26.0" prefWidth="53.0" text="Price" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
@@ -108,7 +106,7 @@
       </TextField>
       <Label fx:id="lblID" layoutX="669.0" layoutY="328.0" prefHeight="26.0" prefWidth="62.0" text="P001" textFill="PURPLE">
          <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
       <ComboBox fx:id="cmbSize" layoutX="668.0" layoutY="395.0" prefHeight="26.0" prefWidth="74.0" promptText="M" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;" />
@@ -132,7 +130,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label layoutX="599.0" layoutY="467.0" prefHeight="26.0" prefWidth="74.0" text="Category">
+      <Label layoutX="599.0" layoutY="467.0" prefHeight="26.0" prefWidth="74.0" text="Category" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
