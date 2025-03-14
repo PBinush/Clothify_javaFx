@@ -3,6 +3,7 @@ package edu.icet.Repository.custom.impl;
 import edu.icet.Repository.custom.OrderDetailsDao;
 import edu.icet.entity.OrderDetailsEntity;
 import edu.icet.util.HibernateUtil;
+import javafx.scene.control.Alert;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -17,6 +18,7 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
             session.persist(orderDetailsEntity);
             transaction.commit();
             System.out.println(orderDetailsEntity);
+            new Alert(Alert.AlertType.INFORMATION,"Os ddasds").show();
             return true;
         } catch (Exception e) {
             transaction.rollback();
@@ -34,7 +36,19 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
 
     @Override
     public boolean update(OrderDetailsEntity orderDetailsEntity) {
-        return false;
+        Session session = HibernateUtil.getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.update(orderDetailsEntity);
+            transaction.commit();
+            return true;
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+            return false;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -45,6 +59,19 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
     @Override
     public String getLastId() {
         return "";
+    }
+
+    @Override
+    public String getProductIdByName(String name) {
+        Session session = HibernateUtil.getSession();
+        try {
+            return session.createQuery("FROM OrderDetailsEntity", OrderDetailsEntity.class).list().toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -59,5 +86,13 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
         } finally {
             session.close();
         }
+    }
+
+    @Override
+    public boolean save(List<OrderDetailsEntity> orderDetailsEntityList) {
+        orderDetailsEntityList.forEach(orderDetailsEntity -> {
+            save(orderDetailsEntity);
+        });
+        return !orderDetailsEntityList.isEmpty();
     }
 }

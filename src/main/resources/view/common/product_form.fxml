@@ -9,6 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -18,12 +19,15 @@
    <children>
       <AnchorPane fx:id="ancProductCategory" layoutX="36.0" layoutY="182.0" prefHeight="463.0" prefWidth="522.0" style="-fx-background-radius: 15px;">
          <children>
-             <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="-28.0" pannable="true" prefHeight="463.0" prefWidth="550.0" style="-fx-background-color: transparent;" styleClass="transparent" stylesheets="@../../css/style.css">
+             <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="-28.0" layoutY="-41.0" pannable="true" prefHeight="504.0" prefWidth="550.0" style="-fx-background-color: transparent;" styleClass="transparent" stylesheets="@../../css/style.css">
                  <content>
-                     <GridPane fx:id="productCardContainer" prefHeight="318.0" prefWidth="297.0">
+                     <GridPane fx:id="productCardContainer" prefHeight="474.0" prefWidth="549.0">
                          <rowConstraints>
                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                          </rowConstraints>
+                     <columnConstraints>
+                        <ColumnConstraints />
+                     </columnConstraints>
                      </GridPane>
                  </content>
              </ScrollPane>
@@ -54,27 +58,27 @@
             <Image url="@../../img/cartdetails/cart_product.png" />
          </image>
       </ImageView>
-      <Label layoutX="599.0" layoutY="328.0" prefHeight="26.0" prefWidth="21.0" text="ID " textFill="PURPLE">
+      <Label layoutX="599.0" layoutY="314.0" prefHeight="26.0" prefWidth="21.0" text="ID " textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="598.0" layoutY="362.0" prefHeight="26.0" prefWidth="42.0" text="Name" textFill="PURPLE">
+      <Label layoutX="598.0" layoutY="348.0" prefHeight="26.0" prefWidth="42.0" text="Name" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="598.0" layoutY="394.0" prefHeight="26.0" prefWidth="61.0" text="Size" textFill="PURPLE">
+      <Label layoutX="598.0" layoutY="380.0" prefHeight="26.0" prefWidth="61.0" text="Size" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="600.0" layoutY="432.0" prefHeight="26.0" prefWidth="53.0" text="Qty" textFill="PURPLE">
+      <Label layoutX="600.0" layoutY="418.0" prefHeight="26.0" prefWidth="53.0" text="Qty" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="601.0" layoutY="503.0" prefHeight="26.0" prefWidth="53.0" text="Price" textFill="PURPLE">
+      <Label layoutX="601.0" layoutY="489.0" prefHeight="26.0" prefWidth="53.0" text="Price" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
@@ -94,47 +98,38 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <TextField fx:id="txtPrice" layoutX="670.0" layoutY="503.0" prefHeight="26.0" prefWidth="199.0" promptText="3200.00" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtPrice" layoutX="670.0" layoutY="486.0" prefHeight="26.0" prefWidth="199.0" promptText="product price" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField fx:id="txtName" layoutX="667.0" layoutY="359.0" prefHeight="26.0" prefWidth="199.0" promptText="shirt" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtName" layoutX="667.0" layoutY="345.0" prefHeight="26.0" prefWidth="199.0" promptText="product name" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label fx:id="lblID" layoutX="669.0" layoutY="328.0" prefHeight="26.0" prefWidth="62.0" text="P001" textFill="PURPLE">
+      <Label fx:id="lblID" layoutX="669.0" layoutY="314.0" prefHeight="26.0" prefWidth="62.0" text="P001" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbSize" layoutX="668.0" layoutY="395.0" prefHeight="26.0" prefWidth="74.0" promptText="M" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;" />
-      <Button layoutX="22.0" layoutY="141.0" mnemonicParsing="false" onAction="#btnGentsOnAction" prefHeight="27.0" prefWidth="160.0" style="-fx-background-color: purple; -fx-background-radius: 15px;" text="Gents" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
-      <Button layoutX="203.0" layoutY="141.0" mnemonicParsing="false" onAction="#btnLadiesOnAction" prefHeight="27.0" prefWidth="160.0" style="-fx-background-color: purple; -fx-background-radius: 15px;" text="Ladies" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
-      <Button layoutX="384.0" layoutY="141.0" mnemonicParsing="false" onAction="#btnKidsOnAction" prefHeight="27.0" prefWidth="160.0" style="-fx-background-color: purple; -fx-background-radius: 15px;" text="Kids" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
-      <TextField fx:id="txtQty" layoutX="670.0" layoutY="432.0" prefHeight="26.0" prefWidth="111.0" promptText="qty" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <ComboBox fx:id="cmbSize" layoutX="668.0" layoutY="381.0" prefHeight="26.0" prefWidth="111.0" promptText="select sizes" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;" />
+      <TextField fx:id="txtQty" layoutX="670.0" layoutY="418.0" prefHeight="26.0" prefWidth="111.0" promptText="qty" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label layoutX="599.0" layoutY="467.0" prefHeight="26.0" prefWidth="74.0" text="Category" textFill="PURPLE">
+      <Label layoutX="599.0" layoutY="453.0" prefHeight="26.0" prefWidth="74.0" text="Category" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbCategory" layoutX="671.0" layoutY="467.0" prefHeight="26.0" prefWidth="94.0" promptText="Gents" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;" />
+      <ComboBox fx:id="cmbCategory" layoutX="671.0" layoutY="453.0" prefHeight="26.0" prefWidth="144.0" promptText="select category" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;" />
+      <Label layoutX="600.0" layoutY="519.0" prefHeight="26.0" prefWidth="53.0" text="Image" textFill="PURPLE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="image" layoutX="670.0" layoutY="517.0" mnemonicParsing="false" onMouseClicked="#btnChooseImage" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 5px;" text="choose image ..." />
    </children>
 </AnchorPane>

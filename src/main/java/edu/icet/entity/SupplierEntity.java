@@ -19,5 +19,8 @@ public class SupplierEntity {
     private String name;
     private String company;
     private String email;
-    private String product;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private ProductEntity product;
 }

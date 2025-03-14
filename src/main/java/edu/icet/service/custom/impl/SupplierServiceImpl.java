@@ -15,6 +15,9 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public boolean saveSupplier(Supplier supplier) {
+        //product name eka wenuwata product id set kirima
+        System.out.println(supplier.getProductId());
+
         SupplierEntity map = new ModelMapper().map(supplier, SupplierEntity.class);
         map.setId(genarateId());
         if (supplierDao.save(map)){

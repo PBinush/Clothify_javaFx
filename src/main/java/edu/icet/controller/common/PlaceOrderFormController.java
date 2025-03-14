@@ -2,7 +2,8 @@ package edu.icet.controller.common;
 
 import edu.icet.controller.cards.OrderCardController;
 import edu.icet.dto.Order;
-import edu.icet.dto.OrderDetails;
+import edu.icet.dto.OrderDetail;
+import edu.icet.dto.cartTM;
 import edu.icet.dto.Product;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.CustomerService;
@@ -10,9 +11,6 @@ import edu.icet.service.custom.OrderDetailsService;
 import edu.icet.service.custom.OrderService;
 import edu.icet.service.custom.ProductService;
 import edu.icet.util.ServiceType;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,11 +25,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -126,21 +123,14 @@ public class PlaceOrderFormController implements Initializable {
     }
 
     Double subTotal=0.0;
-    List<OrderDetails> orderDetailsList = new ArrayList<>();
-    public void addOrderDetails(String orderId,Integer qty){
+    List<cartTM> cartDetailsList = new ArrayList<>();
+        public void addOrderDetails(String orderId,Integer qty){
         System.out.println(orderId+" - "+qty);
         Product productById = productService.getProductById(orderId);
         Double price = qty*productById.getPrice();
-//        orderDetailsService.saveOrderDetail(
-//                new OrderDetails(
-//                        lblOrderId.getText(),
-//                        productById.getName(),
-//                        qty,
-//                        price
-//                )
-//        );
-        orderDetailsList.add(
-                new OrderDetails(
+
+            cartDetailsList.add(
+                new cartTM(
                         lblOrderId.getText(),
                         productById.getName(),
                         qty,
@@ -154,8 +144,8 @@ public class PlaceOrderFormController implements Initializable {
     }
 
     public void loadOrderDetailsTable(){
-        ObservableList<OrderDetails> observableList = FXCollections.observableArrayList();
-        observableList.addAll(orderDetailsList);
+        ObservableList<cartTM> observableList = FXCollections.observableArrayList();
+        observableList.addAll(cartDetailsList);
         tblOrderDetails.setItems(observableList);
     }
 
@@ -191,18 +181,33 @@ public class PlaceOrderFormController implements Initializable {
 
     @FXML
     void btnPlaceOrderAction(ActionEvent event) {
-        boolean b = orderService.saveOrder(
-                new Order(
-                        null,
-                        lblDate.getText(),
-                        findCustomer(),
-                        "user",
-                        orderDetailsList
-                )
+        String orderId = orderService.genarateId();
+        lblOrderId.setText(orderId);
+
+        Order order = new Order(
+                orderId,
+                lblDate.getText(),
+                findCustomer(),
+                "E001"
         );
-        if (b){
-            new Alert(Alert.AlertType.INFORMATION,"order place successfully").show();
-        }else {
+
+        List<OrderDetail> orderDetailsList = new ArrayList<>();
+        cartDetailsList.forEach(cartTM -> {
+            String productId = productService.getProductIdByName(cartTM.getProductName());
+            orderDetailsList.add(
+                    new OrderDetail(
+                        cartTM.getOrderId(),
+                        productId,
+                        cartTM.getQtyOnHand(),
+                        cartTM.getPrice()
+                    )
+            );
+        });
+
+        if (orderService.saveOrder(order, orderDetailsList)) {
+            new Alert(Alert.AlertType.INFORMATION,"order placed successfully").show();
+            orderService.genarateId();
+        } else {
             new Alert(Alert.AlertType.ERROR).show();
         }
     }

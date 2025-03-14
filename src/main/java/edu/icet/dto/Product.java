@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,5 +16,5 @@ public class Product {
     private Integer qty;
     private String category;
     private Double price;
-//    private String imagePath;
+    private String imgPath;
 }

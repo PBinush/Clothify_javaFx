@@ -1,12 +1,12 @@
 package edu.icet.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -23,4 +23,7 @@ public class EmployeeEntity {
     private String address;
     private String phoneNumber;
     private String email;
+
+    @ElementCollection
+    private List<OrderEntity> orderEntityList;
 }

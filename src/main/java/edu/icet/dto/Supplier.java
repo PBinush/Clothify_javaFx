@@ -15,5 +15,5 @@ public class Supplier {
     private String name;
     private String company;
     private String email;
-    private String product;
+    private String productId;
 }

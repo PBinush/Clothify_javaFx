@@ -74,16 +74,17 @@ public class OrderDaoImpl implements OrderDao {
         Connection connection = DBConnection.getInstance().getConnection();
         String lastId = null;
         try {
-            ResultSet resultSet = connection.createStatement().executeQuery("SELECT id FROM orders ORDER BY id DESC LIMIT 1");
+            ResultSet resultSet = connection.createStatement().executeQuery("SELECT orderId FROM orders ORDER BY orderId DESC LIMIT 1");
             if (resultSet.next()) {
-                lastId = resultSet.getString("id");
+                lastId = resultSet.getString("orderId");
             }else {
                 return null;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return lastId;    }
+        return lastId;
+    }
 
     @Override
     public List<OrderEntity> getAll() {

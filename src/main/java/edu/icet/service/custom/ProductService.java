@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProductService extends SuperService {
     boolean saveProduct(Product product);
-    boolean searchProductByName(String name);
+    String getProductIdByName(String name);
     List<Product> getAllGentsProduct();
     List<Product> getAllKidsProduct();
     List<Product> getAllLadiesProduct();

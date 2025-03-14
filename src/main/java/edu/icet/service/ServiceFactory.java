@@ -22,6 +22,7 @@ public class ServiceFactory {
             case CUSTOMERS:return (T) new CustomerServiceImpl();
             case EMPLOYEE:return (T) new EmployeeServiceImpl();
             case ORDER_DETAILS:return (T) new OrderDetailsServiceImpl();
+            case ORDER:return (T) new OrderServiceImpl();
         }
         return null;
     }

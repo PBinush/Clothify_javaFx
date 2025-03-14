@@ -7,9 +7,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -45,6 +47,24 @@ public class OrderCardController implements Initializable {
         spnQtyProduct.setValueFactory(
                 new SpinnerValueFactory.IntegerSpinnerValueFactory(1, product.getQty(), 1) // Set max to stock qty
         );
+
+        if (product.getImgPath() != null) {
+            String cleanedPath = product.getImgPath().replace("file:/", "");
+            cleanedPath = cleanedPath.replace("%20", " ");
+
+            File file = new File(cleanedPath);
+            if (file.exists()) {
+                Image image = new Image(file.toURI().toString());
+                imgProduct.setImage(image);
+
+                imgProduct.setVisible(true);
+            } else {
+                System.out.println("Image not found at: " + cleanedPath);
+                imgProduct.setImage(new Image("file:/D:/Git%20Project/ClothifyStore/src/main/resources/img/cartdetails/cart_product.png"));
+            }
+        } else {
+            imgProduct.setImage(new Image("file:/D:/Git%20Project/ClothifyStore/src/main/resources/img/cartdetails/cart_product.png"));
+        }
     }
 
     @FXML

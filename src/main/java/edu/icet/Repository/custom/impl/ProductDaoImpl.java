@@ -2,6 +2,7 @@ package edu.icet.Repository.custom.impl;
 
 import edu.icet.Repository.custom.ProductDao;
 import edu.icet.db.DBConnection;
+import edu.icet.entity.OrderDetailsEntity;
 import edu.icet.entity.ProductEntity;
 import edu.icet.util.HibernateUtil;
 import org.hibernate.Session;
@@ -183,4 +184,29 @@ public class ProductDaoImpl implements ProductDao {
             session.close();
         }
     }
+
+    @Override
+    public ProductEntity getProductByName(String name) {
+        Session session = HibernateUtil.getSession();
+        try {
+            Query<ProductEntity> query = session.createQuery("FROM ProductEntity WHERE name = :productName", ProductEntity.class);
+            query.setParameter("productName", name);
+            return query.uniqueResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public boolean update(List<ProductEntity> productEntityList) {
+        productEntityList.forEach(productEntity -> {
+            update(productEntity);
+        });
+        return !productEntityList.isEmpty();
+    }
+
+
 }

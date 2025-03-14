@@ -125,7 +125,7 @@ public class SupplierFormController implements Initializable {
         txtName.setText(supplierById.getName());
         txtCompany.setText(supplierById.getCompany());
         txtEmail.setText(supplierById.getEmail());
-        cmbItems.setValue(supplierById.getProduct());
+        cmbItems.setValue(supplierById.getProductId());
         lblID.setText(supplierById.getId());
         if (supplierById.getTitle().equals("Mr")) {
             imgAvotor.setImage(new Image("D://Git Project//ClothifyStore//src//main//resources//img//avotor//Employee-male.png"));

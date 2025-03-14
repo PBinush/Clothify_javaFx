@@ -22,7 +22,7 @@
         <mapping class="edu.icet.entity.ProductEntity"/>
         <mapping class="edu.icet.entity.SupplierEntity"/>
         <mapping class="edu.icet.entity.CustomerEntity"/>
-        <mapping class="edu.icet.entity.OrderDetailsEntity"/>
+<!--        <mapping class="edu.icet.entity.OrderDetailsEntity"/>-->
         <mapping class="edu.icet.entity.EmployeeEntity"/>
 <!--        <mapping class="edu.icet.entity.OrderEntity"/>-->
     </session-factory>

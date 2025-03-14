@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vbProduct" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="172.0" style="-fx-background-color: white; -fx-background-radius: 15px;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.cards.OrderCardController">
+<VBox fx:id="vbProduct" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="172.0" style="-fx-background-color: white; -fx-background-radius: 15px;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.cards.OrderCardController">
    <children>
       <ImageView fx:id="imgProduct" fitHeight="166.0" fitWidth="167.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -62,7 +62,7 @@
          <children>
             <Spinner fx:id="spnQtyProduct" prefHeight="26.0" prefWidth="74.0" style="-fx-background-color: white;">
                <HBox.margin>
-                  <Insets bottom="5.0" left="7.0" />
+                  <Insets left="7.0" top="3.0" />
                </HBox.margin>
                <cursor>
                   <Cursor fx:constant="TEXT" />
@@ -70,12 +70,12 @@
             </Spinner>
             <Label alignment="TOP_RIGHT" prefHeight="18.0" prefWidth="80.0" text="Qty : " textAlignment="CENTER">
                <HBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="12.0" />
                </HBox.margin>
             </Label>
             <Label fx:id="lblQtyOnHand" alignment="TOP_LEFT" prefHeight="18.0" prefWidth="33.0" text="36" textAlignment="CENTER" textFill="PURPLE">
                <HBox.margin>
-                  <Insets top="10.0" />
+                  <Insets top="12.0" />
                </HBox.margin>
                <font>
                   <Font name="System Bold" size="12.0" />
@@ -88,7 +88,7 @@
       </HBox>
       <Button mnemonicParsing="false" onAction="#btnAddtocartOnAction" prefHeight="27.0" prefWidth="166.0" style="-fx-background-color: purple; -fx-background-radius: 5px;" text="Add to cart" textFill="WHITE">
          <VBox.margin>
-            <Insets bottom="3.0" left="3.0" right="3.0" />
+            <Insets bottom="3.0" left="3.0" right="3.0" top="5.0" />
          </VBox.margin>
          <font>
             <Font size="13.0" />

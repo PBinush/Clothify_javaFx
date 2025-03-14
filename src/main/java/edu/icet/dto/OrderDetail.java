@@ -9,10 +9,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class OrderDetails {
+public class OrderDetail {
     private String orderId;
-    private String productName;
-    private Integer qtyOnHand;
+    private String productId;
+    private Integer qty;
     private Double price;
-//    private Button delete;
 }

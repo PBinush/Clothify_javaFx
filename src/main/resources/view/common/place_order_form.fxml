@@ -70,7 +70,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblDate" layoutX="824.0" layoutY="147.0" prefHeight="20.0" prefWidth="72.0" text="2025-2-10" textFill="PURPLE">
+      <Label fx:id="lblDate" layoutX="795.0" layoutY="147.0" prefHeight="20.0" prefWidth="97.0" text="2025-2-10" textFill="PURPLE">
          <font>
             <Font size="14.0" />
          </font>
@@ -112,17 +112,17 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblSubtotal" layoutX="664.0" layoutY="549.0" text="25000.00" textFill="PURPLE">
+      <Label fx:id="lblSubtotal" layoutX="664.0" layoutY="549.0" text="0.0" textFill="PURPLE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblDiscount" layoutX="664.0" layoutY="573.0" text="0.0" textFill="PURPLE">
+      <Label fx:id="lblDiscount" layoutX="664.0" layoutY="573.0" text="0" textFill="PURPLE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblTotal" layoutX="691.0" layoutY="596.0" text="25000.00" textFill="PURPLE">
+      <Label fx:id="lblTotal" layoutX="691.0" layoutY="596.0" text="0.0" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

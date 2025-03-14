@@ -14,10 +14,16 @@ import lombok.ToString;
 @Table(name = "orderDetails")
 public class OrderDetailsEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderDetailsId;
-    private String orderId;
-    private String productName;
-    private Integer qtyOnHand;
+
+    @ManyToOne
+    @JoinColumn(name = "orderId")
+    private OrderEntity order;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private ProductEntity productId;
+    private Integer qty;
     private Double price;
 }

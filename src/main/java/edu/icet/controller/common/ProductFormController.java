@@ -2,7 +2,6 @@ package edu.icet.controller.common;
 
 import edu.icet.controller.cards.product_categories.GentsProductCardController;
 import edu.icet.dto.Product;
-import edu.icet.dto.Supplier;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.ProductService;
 import edu.icet.util.ServiceType;
@@ -14,17 +13,25 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
+import java.awt.event.MouseEvent;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class ProductFormController implements Initializable {
+
+    @FXML
+    public Button image;
 
     @FXML
     private AnchorPane ancProductCategory;
@@ -64,14 +71,17 @@ public class ProductFormController implements Initializable {
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
+
         Product product = new Product(
                 null,
                 txtName.getText(),
                 cmbSize.getValue().toString(),
                 Integer.parseInt(txtQty.getText()),
                 cmbCategory.getValue().toString(),
-                Double.parseDouble(txtPrice.getText())
+                Double.parseDouble(txtPrice.getText()),
+                imgAvotor.getImage().getUrl()
         );
+        System.out.println(imgAvotor.getImage().toString());
         if (productService.saveProduct(product)){
             new Alert(Alert.AlertType.INFORMATION,"Product Added Successfully").show();
         }else {
@@ -95,18 +105,20 @@ public class ProductFormController implements Initializable {
 
     @FXML
     void btnSearchOnAction(ActionEvent event) {
-
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        String correctedPath = imgAvotor.getImage().getUrl().replace(" ", "%20");
+        imgAvotor.setImage(new Image(correctedPath));
         Product product = new Product(
                 lblID.getText(),
                 txtName.getText(),
                 cmbSize.getValue().toString(),
                 Integer.parseInt(txtQty.getText()),
                 cmbCategory.getValue().toString(),
-                Double.parseDouble(txtPrice.getText())
+                Double.parseDouble(txtPrice.getText()),
+                imgAvotor.getImage().getUrl()
         );
         if (productService.updateProduct(product)){
             new Alert(Alert.AlertType.INFORMATION,"Update Successful : "+lblID.getText()).show();
@@ -158,14 +170,17 @@ public class ProductFormController implements Initializable {
         cmbCategory.setValue(productById.getCategory());
         cmbSize.setValue(productById.getSize());
         lblID.setText(productById.getId());
+        image.setText(imgAvotor.getImage().toString());
+        imgAvotor.setImage(new Image(productById.getImgPath()));
     }
 
     public void clearCartDetailP(){
         txtName.clear();
         txtQty.clear();
         txtPrice.clear();
-        cmbSize.setValue(null);
-        cmbCategory.setValue(null);
+        cmbSize.setValue("select size");
+        cmbCategory.setValue("select category");
+        imgAvotor.setImage(new Image("file:/D:/Git%20Project/ClothifyStore/src/main/resources/img/cartdetails/cart_product.png"));
     }
 
     public void btnLadiesOnAction(ActionEvent actionEvent) {
@@ -208,5 +223,19 @@ public class ProductFormController implements Initializable {
 
         lblID.setText(productService.genarateId());
         loadGentsProducts();
+    }
+
+    public void btnChooseImage(javafx.scene.input.MouseEvent mouseEvent) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif", "*.bmp")
+        );
+
+        Stage stage = new Stage(); // Create a new stage for file selection
+        File file = fileChooser.showOpenDialog(stage);
+
+        if (file != null) {
+            imgAvotor.setImage(new Image(file.toURI().toString())); // Store image path
+        }
     }
 }

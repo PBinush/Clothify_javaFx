@@ -56,6 +56,12 @@ public class CustomerFormController implements Initializable {
     @FXML
     private TextField txtSearch;
 
+    public void search(){
+        txtSearch.textProperty().addListener((observableValue, s, t1) -> {
+            System.out.println(t1);
+        });
+    }
+
     List<Customer> customerList;
     final CustomerService customerService = ServiceFactory.getInstance().getServiceTpe(ServiceType.CUSTOMERS);
 

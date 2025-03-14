@@ -4,14 +4,58 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-
 import java.io.IOException;
 
 public class AdminDashboardFormController {
 
-    public AnchorPane ancLogin;
-    public AnchorPane anc2;
+    @FXML
+    public ImageView imgTrendingProduct;
+
+    @FXML
+    public ImageView imgBest;
+
+    @FXML
+    private AnchorPane anc2;
+
+    @FXML
+    private AnchorPane ancLogin;
+
+    @FXML
+    private Button btnLogout;
+
+    @FXML
+    private Label lblBestName;
+
+    @FXML
+    private Label lblBestPosition;
+
+    @FXML
+    private Label lblCustomersCount;
+
+    @FXML
+    private Label lblEmpCount;
+
+    @FXML
+    private Label lblEmpId;
+
+    @FXML
+    private Label lblSalesPrice;
+
+    @FXML
+    private Label lblStocksCount;
+
+    @FXML
+    private Label lblTrendingProductName;
+
+    @FXML
+    private Label lblTrendingProductPrice;
+
+    @FXML
+    private Label lblTrendingProductQty;
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) {

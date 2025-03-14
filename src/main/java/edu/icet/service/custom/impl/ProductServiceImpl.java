@@ -24,8 +24,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public boolean searchProductByName(String name) {
-        return false;
+    public String getProductIdByName(String name) {
+        ProductEntity productByName = productDao.getProductByName(name);
+        return productByName.getId();
     }
 
     @Override

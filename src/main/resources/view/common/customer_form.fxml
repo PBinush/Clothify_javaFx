@@ -95,22 +95,22 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <TextField fx:id="txtEmail" layoutX="670.0" layoutY="500.0" prefHeight="26.0" prefWidth="199.0" promptText="samantha12@gmail.com" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtEmail" layoutX="670.0" layoutY="500.0" prefHeight="26.0" prefWidth="199.0" promptText="customer email" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField fx:id="txtNumber" layoutX="670.0" layoutY="466.0" prefHeight="26.0" prefWidth="199.0" promptText="078667846" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtNumber" layoutX="670.0" layoutY="466.0" prefHeight="26.0" prefWidth="199.0" promptText="customer number" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField fx:id="txtAddress" layoutX="670.0" layoutY="432.0" prefHeight="26.0" prefWidth="199.0" promptText="yakkalamulla,Galle" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtAddress" layoutX="670.0" layoutY="432.0" prefHeight="26.0" prefWidth="199.0" promptText="customer address" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField fx:id="txtName" layoutX="670.0" layoutY="398.0" prefHeight="26.0" prefWidth="199.0" promptText="samantha" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtName" layoutX="670.0" layoutY="398.0" prefHeight="26.0" prefWidth="199.0" promptText="customer name" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -125,6 +125,6 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbTitle" layoutX="670.0" layoutY="368.0" prefHeight="26.0" prefWidth="94.0" promptText="title" />
+      <ComboBox fx:id="cmbTitle" layoutX="670.0" layoutY="368.0" prefHeight="26.0" prefWidth="111.0" promptText="select title" style="-fx-background-color: white;" />
    </children>
 </AnchorPane>

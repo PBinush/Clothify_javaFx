@@ -49,22 +49,22 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="597.0" layoutY="324.0" prefHeight="26.0" prefWidth="21.0" text="ID " textFill="PURPLE">
+      <Label layoutX="593.0" layoutY="324.0" prefHeight="26.0" prefWidth="21.0" text="ID " textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="596.0" layoutY="429.0" prefHeight="26.0" prefWidth="74.0" text="Company" textFill="PURPLE">
+      <Label layoutX="591.0" layoutY="429.0" prefHeight="26.0" prefWidth="74.0" text="Company" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="595.0" layoutY="509.0" prefHeight="26.0" prefWidth="53.0" text="Item" textFill="PURPLE">
+      <Label layoutX="589.0" layoutY="509.0" prefHeight="26.0" prefWidth="83.0" text="Product_id" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="595.0" layoutY="470.0" prefHeight="26.0" prefWidth="53.0" text="Email" textFill="PURPLE">
+      <Label layoutX="590.0" layoutY="470.0" prefHeight="26.0" prefWidth="53.0" text="Email" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
@@ -84,12 +84,12 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <TextField fx:id="txtEmail" layoutX="670.0" layoutY="469.0" prefHeight="26.0" prefWidth="199.0" promptText="samantha12@gmail.com" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtEmail" layoutX="670.0" layoutY="469.0" prefHeight="26.0" prefWidth="199.0" promptText="supplier email" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <TextField fx:id="txtCompany" layoutX="670.0" layoutY="428.0" prefHeight="26.0" prefWidth="199.0" promptText="quora" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtCompany" layoutX="670.0" layoutY="428.0" prefHeight="26.0" prefWidth="199.0" promptText="company" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -99,23 +99,23 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbItems" layoutX="670.0" layoutY="508.0" prefHeight="26.0" prefWidth="199.0" promptText="select cloths" style="-fx-background-color: white;" />
-      <Label layoutX="596.0" layoutY="393.0" prefHeight="26.0" prefWidth="74.0" text="Name" textFill="PURPLE">
+      <ComboBox fx:id="cmbItems" layoutX="670.0" layoutY="508.0" prefHeight="26.0" prefWidth="199.0" promptText="select his product id" style="-fx-background-color: white;" />
+      <Label layoutX="591.0" layoutY="393.0" prefHeight="26.0" prefWidth="74.0" text="Name" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtName" layoutX="670.0" layoutY="393.0" prefHeight="26.0" prefWidth="199.0" promptText="samantha" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
+      <TextField fx:id="txtName" layoutX="670.0" layoutY="393.0" prefHeight="26.0" prefWidth="199.0" promptText="supplier name" style="-fx-background-color: f0f0f0; -fx-background-radius: 5px;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Label layoutX="595.0" layoutY="355.0" prefHeight="26.0" prefWidth="74.0" text="Title" textFill="PURPLE">
+      <Label layoutX="592.0" layoutY="355.0" prefHeight="26.0" prefWidth="74.0" text="Title" textFill="PURPLE">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cmbTitle" layoutX="670.0" layoutY="355.0" prefHeight="26.0" prefWidth="74.0" promptText="Mr" style="-fx-background-color: white;" />
+      <ComboBox fx:id="cmbTitle" layoutX="670.0" layoutY="355.0" prefHeight="26.0" prefWidth="104.0" promptText="select title" style="-fx-background-color: white;" />
       <ImageView fx:id="imgAvotor" fitHeight="134.0" fitWidth="149.0" layoutX="675.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/cartdetails/cart_person.png" />
