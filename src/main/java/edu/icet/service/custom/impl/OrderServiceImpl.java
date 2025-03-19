@@ -4,7 +4,6 @@ import edu.icet.Repository.DaoFactory;
 import edu.icet.Repository.custom.OrderDao;
 import edu.icet.Repository.custom.OrderDetailsDao;
 import edu.icet.Repository.custom.ProductDao;
-import edu.icet.db.DBConnection;
 import edu.icet.dto.Order;
 import edu.icet.dto.OrderDetail;
 import edu.icet.dto.Product;
@@ -12,6 +11,7 @@ import edu.icet.entity.OrderDetailsEntity;
 import edu.icet.entity.OrderEntity;
 import edu.icet.entity.ProductEntity;
 import edu.icet.service.ServiceFactory;
+import edu.icet.service.custom.OrderDetailsService;
 import edu.icet.service.custom.OrderService;
 import edu.icet.service.custom.ProductService;
 import edu.icet.util.DaoType;
@@ -21,14 +21,16 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.modelmapper.ModelMapper;
 
-import java.sql.Connection;
-import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class OrderServiceImpl implements OrderService {
     final OrderDao orderDao = DaoFactory.getInstance().getDaoType(DaoType.ORDER);
     final OrderDetailsDao orderDetailsDao = DaoFactory.getInstance().getDaoType(DaoType.ORDER_DETAILS);
+    final OrderDetailsService orderDetailsService = ServiceFactory.getInstance().getServiceTpe(ServiceType.ORDER_DETAILS);
     final ProductService productService = ServiceFactory.getInstance().getServiceTpe(ServiceType.PRODUCT);
     final ProductDao productDao = DaoFactory.getInstance().getDaoType(DaoType.PRODUCT);
 
@@ -102,5 +104,24 @@ public class OrderServiceImpl implements OrderService {
         String id = String.format("O%03d", i);
         System.out.println("Next Customer ID: " + id);
         return id;
+    }
+
+    @Override
+    public String todayOrdersBalance() {
+        List<Order> todayOrders = new ArrayList<>();
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
+        orderDao.getAll().forEach(orderEntity -> {
+            if (orderEntity.getOrderDate().equals(simpleDateFormat.format(date))){
+                todayOrders.add(new ModelMapper().map(orderEntity,Order.class));
+            }
+        });
+
+        AtomicReference<Double> sumOf = new AtomicReference<>(0.0);
+        todayOrders.forEach(order -> {
+            String sum = orderDetailsService.getOrderDetailsSumPricesByOrderId(order.getOrderId());
+            sumOf.set(Double.parseDouble(sum));
+        });
+        return sumOf.toString();
     }
 }

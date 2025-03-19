@@ -8,8 +8,12 @@ import edu.icet.service.custom.UserService;
 import edu.icet.util.ServiceType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
+import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 public class RegisterFormController {
     @FXML
@@ -20,6 +24,9 @@ public class RegisterFormController {
 
     @FXML
     public JFXTextField txtSalary;
+
+    @FXML
+    public AnchorPane ancLogin;
 
     @FXML
     private JFXTextField txtEmail;
@@ -34,18 +41,11 @@ public class RegisterFormController {
     private JFXPasswordField txtPassword;
 
     @FXML
-    private JFXPasswordField txtRePassword;
-
-    @FXML
     private JFXTextField txtUsername;
 
     @FXML
     void btnRegisterOnAction(ActionEvent event) {
         String name = txtFirstname.getText()+txtLastname.getText();
-        String password = "";
-        if (txtPassword.equals(txtRePassword)){
-            password = txtPassword.getText();
-        }
         String role = "";
         if (btnRoleAdmin.isSelected()){
             role = "Admin";
@@ -56,20 +56,22 @@ public class RegisterFormController {
         UserService userService = ServiceFactory.getInstance().getServiceTpe(ServiceType.USER);
         User user = new User(
                 name,
-                txtEmail.getText(),
                 txtUsername.getText(),
-                password,
-                role,
-                Double.parseDouble(txtSalary.getText())
+                txtEmail.getText(),
+                txtPassword.getText(),
+                role
         );
+
         if (userService.saveUser(user)){
+            try {
+                AnchorPane pane = FXMLLoader.load(getClass().getResource("../../../../view/user/login_form.fxml"));
+                ancLogin.getChildren().setAll(pane);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             new Alert(Alert.AlertType.INFORMATION,"registration successfully").show();
         }else {
             new Alert(Alert.AlertType.ERROR).show();
         }
     }
-
-
-
-   
 }

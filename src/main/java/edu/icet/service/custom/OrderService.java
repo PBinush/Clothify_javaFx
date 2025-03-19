@@ -9,4 +9,5 @@ public interface OrderService extends SuperService {
     boolean saveOrder(Order order, List<OrderDetail> orderDetails);
     List<Order> getAllOrders();
     String genarateId();
+    String todayOrdersBalance();
 }

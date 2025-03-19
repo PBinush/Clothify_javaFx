@@ -8,6 +8,9 @@ import edu.icet.service.custom.UserService;
 import edu.icet.util.DaoType;
 import org.modelmapper.ModelMapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserServiceImpl implements UserService {
     final UserDao userDao = DaoFactory.getInstance().getDaoType(DaoType.USER);
 
@@ -27,5 +30,14 @@ public class UserServiceImpl implements UserService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<User> getAll() {
+        List<User> allUser = new ArrayList<>();
+        userDao.getAll().forEach(userEntity -> {
+                allUser.add(new ModelMapper().map(userEntity,User.class)) ;
+        });
+        return allUser;
     }
 }

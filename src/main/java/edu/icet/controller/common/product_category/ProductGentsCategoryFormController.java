@@ -12,7 +12,6 @@ import javafx.geometry.Insets;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;

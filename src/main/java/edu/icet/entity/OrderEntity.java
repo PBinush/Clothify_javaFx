@@ -26,6 +26,8 @@ public class OrderEntity {
     @JoinColumn(name = "employee_id")
     private EmployeeEntity empId;
 
+//    private Boolean isReterned;
+    
     @ElementCollection
     private List<OrderDetailsEntity> orderList;
 }

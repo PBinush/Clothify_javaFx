@@ -5,6 +5,7 @@ import edu.icet.entity.UserEntity;
 import edu.icet.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import java.util.List;
 
 public class UserDaoImpl implements UserDao {
     @Override
@@ -67,5 +68,19 @@ public class UserDaoImpl implements UserDao {
     @Override
     public String getLastId() {
         return " ";
+    }
+
+    @Override
+    public List<UserEntity> getAll() {
+        Session session = HibernateUtil.getSession();
+        try {
+            List<UserEntity> fromUser = session.createQuery("FROM UserEntity", UserEntity.class).list();
+            return fromUser;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
     }
 }
