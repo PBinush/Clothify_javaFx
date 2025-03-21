@@ -10,10 +10,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -27,6 +24,9 @@ public class OrdersFormController implements Initializable {
 
     @FXML
     public TableColumn colItems;
+
+    @FXML
+    public TableColumn colReturned;
 
     @FXML
     private AnchorPane anc2;
@@ -82,6 +82,7 @@ public class OrdersFormController implements Initializable {
         colDateAndTime.setCellValueFactory(new PropertyValueFactory<>("orderDate"));
         colEmpId.setCellValueFactory(new PropertyValueFactory<>("empId"));
         colItems.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        colReturned.setCellValueFactory(new PropertyValueFactory<>("isReturned"));
 
         loadTable();
 
@@ -108,5 +109,15 @@ public class OrdersFormController implements Initializable {
 
     public void btnReternedOnAction(ActionEvent actionEvent) {
 
+        Order selectedOrder = tblOrder.getSelectionModel().getSelectedItem();
+        if (selectedOrder != null) {
+            selectedOrder.setIsReturned("YES");
+            if (orderService.updateIsReturnedOrder(selectedOrder.getOrderId())){
+                new Alert(Alert.AlertType.INFORMATION,"returned successfully").show();
+            }else{
+                new Alert(Alert.AlertType.ERROR).show();
+            }
+            loadTable();
+        }
     }
 }

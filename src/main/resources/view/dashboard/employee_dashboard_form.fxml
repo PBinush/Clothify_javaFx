@@ -15,100 +15,78 @@
 
 <AnchorPane fx:id="ancLogin" prefHeight="755.0" prefWidth="1202.0" style="-fx-background-color: f0f0f0;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.dashboard.EmployeeDashboardFormController">
    <children>
-      <Region layoutX="19.0" layoutY="18.0" prefHeight="716.0" prefWidth="258.0" style="-fx-background-color: purple; -fx-background-radius: 15px; -fx-border-color: white; -fx-border-radius: 15px; -fx-background-size: 3px;" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+      <Region layoutX="19.0" layoutY="28.0" prefHeight="716.0" prefWidth="258.0" style="-fx-background-color: purple; -fx-background-radius: 15px; -fx-border-color: white; -fx-border-radius: 15px; -fx-background-size: 3px;" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="48.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/logo3.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="anc2" layoutX="277.0" prefHeight="755.0" prefWidth="926.0">
+      <AnchorPane fx:id="anc2" layoutX="277.0" layoutY="100.0" prefHeight="674.0" prefWidth="926.0">
          <children>
-            <Region layoutX="16.0" layoutY="21.0" prefHeight="49.0" prefWidth="890.0" style="-fx-background-color: purple; -fx-background-radius: 15px; -fx-border-color: white; -fx-border-radius: 15px; -fx-background-size: 3px;" />
-            <Label layoutX="36.0" layoutY="33.0" text="Welcometo Clothfy Store" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="858.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../img/avotor/employee-female.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="821.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../img/notification_white.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <Label layoutX="36.0" layoutY="91.0" text="Dashboard" textFill="PURPLE">
+            <Label layoutX="36.0" layoutY="11.0" text="Dashboard" textFill="PURPLE">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Region layoutX="52.0" layoutY="145.0" prefHeight="154.0" prefWidth="200.0" style="-fx-background-color: purple; -fx-background-radius: 15px;" />
-            <Region layoutX="280.0" layoutY="145.0" prefHeight="154.0" prefWidth="200.0" style="-fx-background-color: purple; -fx-background-radius: 15px;" />
-            <Region layoutX="508.0" layoutY="145.0" prefHeight="154.0" prefWidth="200.0" style="-fx-background-color: purple; -fx-background-radius: 15px;" />
-            <Region layoutX="237.0" layoutY="172.0" prefHeight="127.0" prefWidth="4.0" style="-fx-background-color: white;" />
-            <Region layoutX="466.0" layoutY="172.0" prefHeight="127.0" prefWidth="4.0" style="-fx-background-color: white;" />
-            <Region layoutX="695.0" layoutY="172.0" prefHeight="127.0" prefWidth="4.0" style="-fx-background-color: white;" />
-            <Label layoutX="64.0" layoutY="155.0" text="Today" textFill="WHITE">
+            <Region layoutX="52.0" layoutY="65.0" prefHeight="154.0" prefWidth="200.0" style="-fx-background-color: purple; -fx-background-radius: 15px;" />
+            <Region layoutX="280.0" layoutY="65.0" prefHeight="154.0" prefWidth="200.0" style="-fx-background-color: purple; -fx-background-radius: 15px;" />
+            <Region layoutX="508.0" layoutY="65.0" prefHeight="154.0" prefWidth="200.0" style="-fx-background-color: purple; -fx-background-radius: 15px;" />
+            <Region layoutX="237.0" layoutY="92.0" prefHeight="127.0" prefWidth="4.0" style="-fx-background-color: white;" />
+            <Region layoutX="466.0" layoutY="92.0" prefHeight="127.0" prefWidth="4.0" style="-fx-background-color: white;" />
+            <Region layoutX="695.0" layoutY="91.0" prefHeight="127.0" prefWidth="4.0" style="-fx-background-color: white;" />
+            <Label layoutX="64.0" layoutY="75.0" text="Today" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="292.0" layoutY="156.0" text="Stocks" textFill="WHITE">
+            <Label layoutX="292.0" layoutY="76.0" text="Stocks" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="521.0" layoutY="156.0" text="Customers" textFill="WHITE">
+            <Label layoutX="521.0" layoutY="76.0" text="Customers" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblTodayAllSales" layoutX="64.0" layoutY="246.0" prefHeight="40.0" prefWidth="174.0" text="000.00" textFill="WHITE">
+            <Label fx:id="lblTodayAllSales" layoutX="64.0" layoutY="166.0" prefHeight="40.0" prefWidth="174.0" text="000.00" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="28.0" />
                </font>
             </Label>
-            <ImageView fitHeight="57.0" fitWidth="60.0" layoutX="177.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="57.0" fitWidth="60.0" layoutX="177.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/cal.png" />
                </image>
             </ImageView>
-            <Region layoutX="36.0" layoutY="332.0" prefHeight="398.0" prefWidth="523.0" style="-fx-background-color: white; -fx-background-radius: 15px;" />
-            <Region layoutX="574.0" layoutY="332.0" prefHeight="398.0" prefWidth="309.0" style="-fx-background-color: white; -fx-background-radius: 15px;" />
-            <Label layoutX="47.0" layoutY="341.0" text="Your Monthly Sales" textFill="PURPLE">
+            <Region layoutX="36.0" layoutY="232.0" prefHeight="398.0" prefWidth="523.0" style="-fx-background-color: white; -fx-background-radius: 15px;" />
+            <Region layoutX="574.0" layoutY="232.0" prefHeight="398.0" prefWidth="309.0" style="-fx-background-color: white; -fx-background-radius: 15px;" />
+            <Label layoutX="47.0" layoutY="241.0" text="Your Monthly Sales" textFill="PURPLE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="585.0" layoutY="341.0" text="Your Perfomance" textFill="PURPLE">
+            <Label layoutX="585.0" layoutY="241.0" text="Your Perfomance" textFill="PURPLE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblStockCount" layoutX="296.0" layoutY="243.0" prefHeight="40.0" prefWidth="174.0" text="00" textFill="WHITE">
+            <Label fx:id="lblStockCount" layoutX="296.0" layoutY="163.0" prefHeight="40.0" prefWidth="174.0" text="00" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="28.0" />
                </font>
             </Label>
-            <Label fx:id="lblYourCustomersCount" layoutX="525.0" layoutY="242.0" prefHeight="40.0" prefWidth="167.0" text="00" textFill="WHITE">
+            <Label fx:id="lblYourCustomersCount" layoutX="525.0" layoutY="162.0" prefHeight="40.0" prefWidth="167.0" text="00" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="28.0" />
                </font>
             </Label>
-            <ImageView fitHeight="227.0" fitWidth="200.0" layoutX="629.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="227.0" fitWidth="200.0" layoutX="629.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/win.png" />
                </image>
             </ImageView>
-            <Label fx:id="lblLeval" layoutX="671.0" layoutY="611.0" text="Level 1" textFill="PURPLE">
+            <Label fx:id="lblLeval" layoutX="671.0" layoutY="511.0" text="Level 1" textFill="PURPLE">
                <font>
                   <Font name="Broadway" size="33.0" />
                </font>
@@ -118,18 +96,18 @@
                   <Font name="Broadway" size="33.0" />
                </font>
             </Label>
-            <Label layoutX="630.0" layoutY="686.0" text="next leval monthly sales  " textFill="#009dff" />
-            <Label fx:id="lblNextLeval" layoutX="759.0" layoutY="684.0" text="up 20000.00" textFill="#009dff">
+            <Label layoutX="630.0" layoutY="586.0" text="next leval monthly sales  " textFill="#009dff" />
+            <Label fx:id="lblNextLeval" layoutX="759.0" layoutY="584.0" text="up 20000.00" textFill="#009dff">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblLevalMessage" layoutX="603.0" layoutY="650.0" text="Congratulation !! You pass Leval 1 Employee" textFill="PURPLE">
+            <Label fx:id="lblLevalMessage" layoutX="603.0" layoutY="550.0" text="Congratulation !! You pass Leval 1 Employee" textFill="PURPLE">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="13.0" />
                </font>
             </Label>
-            <LineChart layoutX="30.0" layoutY="364.0" prefHeight="374.0" prefWidth="517.0">
+            <LineChart layoutX="30.0" layoutY="264.0" prefHeight="374.0" prefWidth="517.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -137,60 +115,60 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
             </LineChart>
-            <Region layoutX="731.0" layoutY="144.0" prefHeight="154.0" prefWidth="167.0" style="-fx-background-color: white; -fx-background-radius: 15px;" />
-            <Label layoutX="737.0" layoutY="148.0" text="Best Performer" textFill="PURPLE">
+            <Region layoutX="731.0" layoutY="64.0" prefHeight="154.0" prefWidth="167.0" style="-fx-background-color: white; -fx-background-radius: 15px;" />
+            <Label layoutX="737.0" layoutY="68.0" text="Best Performer" textFill="PURPLE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="741.0" layoutY="168.0" prefHeight="20.0" prefWidth="146.0" text="Best Perfomance Employee " textFill="PURPLE">
+            <Label layoutX="741.0" layoutY="88.0" prefHeight="20.0" prefWidth="146.0" text="Best Perfomance Employee " textFill="PURPLE">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="741.0" layoutY="188.0" text="in this month" textFill="PURPLE">
+            <Label layoutX="741.0" layoutY="108.0" text="in this month" textFill="PURPLE">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </Label>
-            <Label fx:id="lblBestName" alignment="CENTER" layoutX="742.0" layoutY="224.0" prefHeight="26.0" prefWidth="146.0" text="Ruwan Chinthaka" textFill="PURPLE">
+            <Label fx:id="lblBestName" alignment="CENTER" layoutX="742.0" layoutY="144.0" prefHeight="26.0" prefWidth="146.0" text="Ruwan Chinthaka" textFill="PURPLE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lblBestPosision" alignment="CENTER" contentDisplay="CENTER" layoutX="741.0" layoutY="260.0" prefHeight="26.0" prefWidth="146.0" text="Cashiar" textAlignment="CENTER" textFill="PURPLE">
+            <Label fx:id="lblBestPosision" alignment="CENTER" contentDisplay="CENTER" layoutX="741.0" layoutY="180.0" prefHeight="26.0" prefWidth="146.0" text="Cashiar" textAlignment="CENTER" textFill="PURPLE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="61.0" layoutY="178.0" prefHeight="20.0" prefWidth="146.0" text="Today YourAll Sales income" textFill="WHITE">
+            <Label layoutX="61.0" layoutY="98.0" prefHeight="20.0" prefWidth="146.0" text="Today YourAll Sales income" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="289.0" layoutY="178.0" prefHeight="20.0" prefWidth="139.0" text="All Stock Product Count" textFill="WHITE">
+            <Label layoutX="289.0" layoutY="98.0" prefHeight="20.0" prefWidth="139.0" text="All Stock Product Count" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="520.0" layoutY="178.0" prefHeight="20.0" prefWidth="139.0" text="Your All Customers Count" textFill="WHITE">
+            <Label layoutX="520.0" layoutY="98.0" prefHeight="20.0" prefWidth="139.0" text="Your All Customers Count" textFill="WHITE">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="43.0" layoutX="411.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="43.0" layoutX="411.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/icon/stocks.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="50.0" fitWidth="43.0" layoutX="638.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="50.0" fitWidth="43.0" layoutX="638.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../img/icon/customers.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <Button layoutX="58.0" layoutY="185.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Dashboard" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="195.0" mnemonicParsing="false" onAction="#btnDashboardOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Dashboard" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -198,7 +176,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="58.0" layoutY="239.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Place Order" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="249.0" mnemonicParsing="false" onAction="#btnPlaceOrderOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Place Order" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -206,7 +184,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="58.0" layoutY="294.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Customer" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="304.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Customer" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -214,7 +192,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="58.0" layoutY="347.0" mnemonicParsing="false" onAction="#btnProductOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Product" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="357.0" mnemonicParsing="false" onAction="#btnProductOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Product" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -222,7 +200,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="58.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnSuppliersOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Supplier" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="411.0" mnemonicParsing="false" onAction="#btnSuppliersOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Supplier" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -230,7 +208,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button layoutX="58.0" layoutY="454.0" mnemonicParsing="false" onAction="#btnOrdersOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Orders" textFill="PURPLE">
+      <Button layoutX="58.0" layoutY="464.0" mnemonicParsing="false" onAction="#btnOrdersOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-radius: 15px;" stylesheets="@../../css/dashboard.css" text="Orders" textFill="PURPLE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -239,7 +217,7 @@
          </cursor>
       </Button>
       <Line endX="100.0" layoutX="148.0" layoutY="507.0" startX="-100.0" stroke="PURPLE" />
-      <Button layoutX="58.0" layoutY="676.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: red; -fx-background-radius: 15px;" text="Logout" textFill="WHITE">
+      <Button layoutX="58.0" layoutY="686.0" mnemonicParsing="false" onAction="#btnLogoutOnAction" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: red; -fx-background-radius: 15px;" text="Logout" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -247,9 +225,31 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fitHeight="119.0" fitWidth="98.0" layoutX="99.0" layoutY="542.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="119.0" fitWidth="98.0" layoutX="99.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/avotor/employee-female.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Region layoutX="295.0" layoutY="32.0" prefHeight="49.0" prefWidth="890.0" style="-fx-background-color: purple; -fx-background-radius: 15px; -fx-border-color: white; -fx-border-radius: 15px; -fx-background-size: 3px;" />
+      <Label layoutX="315.0" layoutY="44.0" text="Welcometo Clothfy Store" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="1137.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/avotor/employee-female.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="1100.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/notification_white.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

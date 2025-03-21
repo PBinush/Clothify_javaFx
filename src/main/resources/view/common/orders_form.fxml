@@ -44,10 +44,11 @@
       </Label>
       <TableView fx:id="tblOrder" layoutX="18.0" layoutY="142.0" prefHeight="504.0" prefWidth="561.0" style="-fx-background-color: white; -fx-background-radius: 15px;">
         <columns>
-          <TableColumn fx:id="colOrderId" prefWidth="97.60000419616699" text="OrderID" />
-          <TableColumn fx:id="colDateAndTime" prefWidth="213.60001373291016" text="Date&amp;Time" />
-            <TableColumn fx:id="colCustId" prefWidth="123.199951171875" text="CustId" />
-            <TableColumn fx:id="colEmpId" prefWidth="127.99990844726562" text="EmpId" />
+          <TableColumn fx:id="colOrderId" prefWidth="74.39999008178711" text="OrderID" />
+          <TableColumn fx:id="colDateAndTime" prefWidth="201.59999084472656" text="Date&amp;Time" />
+            <TableColumn fx:id="colCustId" prefWidth="88.79998779296875" text="CustId" />
+            <TableColumn fx:id="colEmpId" prefWidth="87.20001220703125" text="EmpId" />
+            <TableColumn fx:id="colReturned" prefWidth="110.4000244140625" text="isReturned" />
         </columns>
          <cursor>
             <Cursor fx:constant="HAND" />

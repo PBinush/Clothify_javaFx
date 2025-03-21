@@ -25,9 +25,8 @@ public class OrderEntity {
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private EmployeeEntity empId;
+    private String isReturned;
 
-//    private Boolean isReterned;
-    
     @ElementCollection
     private List<OrderDetailsEntity> orderList;
 }

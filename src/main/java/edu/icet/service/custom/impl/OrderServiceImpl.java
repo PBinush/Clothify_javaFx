@@ -81,6 +81,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public boolean updateIsReturnedOrder(String id) {
+        OrderEntity orderById = orderDao.getOrderById(id);
+        orderById.setIsReturned("YES");
+        return orderDao.update(orderById);
+    }
+
+    @Override
     public List<Order> getAllOrders() {
         ArrayList<Order> orders = new ArrayList<>();
         for (OrderEntity entity : orderDao.getAll()) {

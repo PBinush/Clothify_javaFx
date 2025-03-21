@@ -14,4 +14,5 @@ public class Order {
     private String orderDate;
     private String custId;
     private String empId;
+    private String isReturned;
 }

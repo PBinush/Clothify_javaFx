@@ -27,7 +27,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -188,7 +187,8 @@ public class PlaceOrderFormController implements Initializable {
                 orderId,
                 lblDate.getText(),
                 findCustomer(),
-                "E001"
+                "E001",
+                "NO"
         );
 
         List<OrderDetail> orderDetailsList = new ArrayList<>();
@@ -232,6 +232,44 @@ public class PlaceOrderFormController implements Initializable {
         colQty.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
         colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         dateAndTime();
-//        lblOrderId.setText(orderService.genarateId());
+        lblOrderId.setText(orderService.genarateId());
+
+        colDeletebtn.setCellFactory(param -> new TableCell<cartTM, Void>() {
+            private final Button deleteButton = new Button("Delete");
+
+            {
+                deleteButton.setStyle("-fx-background-color: #ff4d4d; -fx-text-fill: white; -fx-font-weight: bold;");
+                deleteButton.setOnAction(event -> {
+                    cartTM selectedItem = getTableView().getItems().get(getIndex());
+                    removeOrderDetail(selectedItem);
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(deleteButton);
+                }
+            }
+        });
+
+        dateAndTime();
+        lblOrderId.setText(orderService.genarateId());
+
+    }
+
+    private void removeOrderDetail(cartTM cartItem) {
+        cartDetailsList.remove(cartItem);
+
+        // Update the subtotal and total
+        subTotal -= cartItem.getPrice();
+        lblSubtotal.setText(subTotal.toString());
+        lblTotal.setText(subTotal.toString());
+
+        // Refresh the table
+        loadOrderDetailsTable();
     }
 }

@@ -2,10 +2,14 @@ package edu.icet.Repository.custom.impl;
 
 import edu.icet.Repository.custom.OrderDao;
 import edu.icet.db.DBConnection;
+import edu.icet.dto.Order;
 import edu.icet.entity.OrderEntity;
+import edu.icet.entity.SupplierEntity;
 import edu.icet.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -92,6 +96,21 @@ public class OrderDaoImpl implements OrderDao {
         try {
             List<OrderEntity> fromOrder = session.createQuery("FROM OrderEntity", OrderEntity.class).list();
             return fromOrder;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public OrderEntity getOrderById(String id) {
+        Session session = HibernateUtil.getSession();
+        try {
+            Query<OrderEntity> query = session.createQuery("FROM OrderEntity WHERE id = :orderId", OrderEntity.class);
+            query.setParameter("orderId", id);
+            return query.uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
