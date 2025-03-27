@@ -3,20 +3,25 @@ package  edu.icet.controller.user;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import edu.icet.dto.RandomNumber;
+import edu.icet.service.ServiceFactory;
+import edu.icet.service.custom.UserService;
+import edu.icet.util.ServiceType;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import org.controlsfx.control.textfield.TextFields;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import java.util.Properties;
-import java.util.Random;
+import java.net.URL;
+import java.util.*;
 
-public class ForgetPasswordFormController {
+public class ForgetPasswordFormController implements Initializable {
 
     @FXML
     private AnchorPane ancForgotPassword;
@@ -46,6 +51,8 @@ public class ForgetPasswordFormController {
     private TextField txtnum5;
 
     String randomNumber;
+
+    UserService userService = ServiceFactory.getInstance().getServiceTpe(ServiceType.USER);
     @FXML
     void btnSendOTPOnAction(ActionEvent event) throws MessagingException {
         Random random = new Random();
@@ -102,4 +109,12 @@ public class ForgetPasswordFormController {
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        List<String> possibleSuggestions = new ArrayList<>();
+        userService.getAll().forEach(user -> {
+            possibleSuggestions.add(user.getEmail());
+        });
+        TextFields.bindAutoCompletion(txtEmail,possibleSuggestions);
+    }
 }

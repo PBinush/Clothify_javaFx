@@ -8,4 +8,5 @@ import java.util.List;
 public interface OrderDao extends CrudDao<OrderEntity> {
     List<OrderEntity> getAll();
     OrderEntity getOrderById (String id);
+    List<OrderEntity> getOrdersByEmployeeId(String id);
 }

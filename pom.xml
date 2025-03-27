@@ -73,5 +73,18 @@
             <version>1.6.3</version>
         </dependency>
 
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+
+
+            <dependency>
+                <groupId>org.controlsfx</groupId>
+                <artifactId>controlsfx</artifactId>
+                <version>11.2.0</version> <!-- Use the latest version -->
+            </dependency>
+
     </dependencies>
 </project>

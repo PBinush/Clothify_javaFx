@@ -9,15 +9,21 @@ import edu.icet.util.ServiceType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.controlsfx.control.textfield.TextFields;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class LoginFormController {
+public class LoginFormController implements Initializable {
 
     public AnchorPane ancLogin;
     @FXML
@@ -77,4 +83,12 @@ public class LoginFormController {
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        List<String> possibleSuggestions = new ArrayList<>();
+        userService.getAll().forEach(user -> {
+            possibleSuggestions.add(user.getEmail());
+        });
+        TextFields.bindAutoCompletion(txtEmail,possibleSuggestions);
+    }
 }

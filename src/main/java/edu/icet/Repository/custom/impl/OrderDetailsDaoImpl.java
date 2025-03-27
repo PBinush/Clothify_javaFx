@@ -2,11 +2,14 @@ package edu.icet.Repository.custom.impl;
 
 import edu.icet.Repository.custom.OrderDetailsDao;
 import edu.icet.entity.OrderDetailsEntity;
+import edu.icet.entity.OrderEntity;
 import edu.icet.util.HibernateUtil;
 import javafx.scene.control.Alert;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -95,5 +98,20 @@ public class OrderDetailsDaoImpl implements OrderDetailsDao {
             save(orderDetailsEntity);
         });
         return !orderDetailsEntityList.isEmpty();
+    }
+
+    @Override
+    public List<OrderDetailsEntity> getOrderDetailsByOrderDate(String date) {
+        Session session = HibernateUtil.getSession();
+        try {
+            Query<OrderDetailsEntity> query = session.createQuery("FROM OrderDetailsEntity WHERE date = :date", OrderDetailsEntity.class);
+            query.setParameter("date", date);
+            return query.getResultList(); // Return list of orders
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>(); // Return empty list on failure
+        } finally {
+            session.close();
+        }
     }
 }

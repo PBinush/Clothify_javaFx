@@ -1,17 +1,27 @@
 package edu.icet.controller.dashboard;
 
+import edu.icet.dto.Order;
+import edu.icet.service.ServiceFactory;
+import edu.icet.util.ServiceType;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class EmployeeDashboardFormController {
 
     public AnchorPane ancLogin;
     public AnchorPane anc2;
+    public LineChart<String, Number> progressChart;
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) {
@@ -78,5 +88,4 @@ public class EmployeeDashboardFormController {
             throw new RuntimeException(e);
         }
     }
-
 }

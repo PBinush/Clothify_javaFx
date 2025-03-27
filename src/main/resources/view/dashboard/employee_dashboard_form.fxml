@@ -107,7 +107,7 @@
                   <Font name="Berlin Sans FB Demi Bold" size="13.0" />
                </font>
             </Label>
-            <LineChart layoutX="30.0" layoutY="264.0" prefHeight="374.0" prefWidth="517.0">
+            <LineChart fx:id="progressChart" layoutX="30.0" layoutY="264.0" prefHeight="374.0" prefWidth="517.0">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>

@@ -9,4 +9,5 @@ public interface OrderDetailsService extends SuperService {
     List<OrderDetail> getAllOrderDetails();
     List<String> getOrderDetailNamesByOrderId(String orderId);
     String getOrderDetailsSumPricesByOrderId(String orderId);
+//    Double getSumOfSalaryByDay(String date);
 }

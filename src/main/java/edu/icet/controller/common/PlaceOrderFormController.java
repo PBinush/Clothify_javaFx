@@ -20,11 +20,14 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import org.controlsfx.control.textfield.TextFields;
+
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
@@ -32,6 +35,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import static javafx.scene.control.TextField.*;
 
 public class PlaceOrderFormController implements Initializable {
 
@@ -152,16 +157,6 @@ public class PlaceOrderFormController implements Initializable {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat();
         lblDate.setText(simpleDateFormat.format(date));
-
-//        Timeline timeline = new Timeline(
-//                new KeyFrame(Duration.ZERO, e->{
-//                    LocalTime now = LocalTime.now();
-//                    lblTime.setText(now.getHour()+":"+now.getMinute()+":"+now.getSecond());
-//                }),
-//                new KeyFrame(Duration.seconds(1))
-//        );
-//        timeline.setCycleCount(Animation.INDEFINITE);
-//        timeline.play();
     }
 
     String custId;
@@ -227,6 +222,40 @@ public class PlaceOrderFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // Load products initially
+        loadProducts();
+
+        // Auto-search feature
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            searchProducts(newValue);
+        });
+
+        colName.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        dateAndTime();
+        lblOrderId.setText(orderService.genarateId());
+
+
+        ObservableList<String> possibleSuggestions = FXCollections.observableArrayList();
+        customerService.getAllCustomers().forEach(customer -> {
+            possibleSuggestions.add(customer.getPhoneNumber());
+        });
+        TextFields.bindAutoCompletion(txtNumber,possibleSuggestions);
+
+        txtNumber.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (possibleSuggestions.contains(newValue)) {
+                customerService.getAllCustomers().forEach(customer -> {
+                    if (customer.getPhoneNumber().equals(newValue)){
+                        txtName.setText(customer.getName());
+                    }
+                });
+            } else {
+                txtName.clear(); // Clear if no match
+            }
+        });
+
+
         loadProducts();
         colName.setCellValueFactory(new PropertyValueFactory<>("productName"));
         colQty.setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
@@ -235,7 +264,7 @@ public class PlaceOrderFormController implements Initializable {
         lblOrderId.setText(orderService.genarateId());
 
         colDeletebtn.setCellFactory(param -> new TableCell<cartTM, Void>() {
-            private final Button deleteButton = new Button("Delete");
+            private final Button deleteButton = new Button("<>");
 
             {
                 deleteButton.setStyle("-fx-background-color: #ff4d4d; -fx-text-fill: white; -fx-font-weight: bold;");
@@ -254,7 +283,7 @@ public class PlaceOrderFormController implements Initializable {
                     setGraphic(deleteButton);
                 }
             }
-        });
+             });
 
         dateAndTime();
         lblOrderId.setText(orderService.genarateId());
@@ -269,7 +298,43 @@ public class PlaceOrderFormController implements Initializable {
         lblSubtotal.setText(subTotal.toString());
         lblTotal.setText(subTotal.toString());
 
-        // Refresh the table
         loadOrderDetailsTable();
+    }
+
+    private void searchProducts(String searchText) {
+        searchText = searchText.trim().toLowerCase();
+
+        // Clear the grid before adding filtered results
+        placeOrderCardContainer.getChildren().clear();
+
+        int column = 0;
+        int row = 1;
+
+        try {
+            for (Product product : productsList) {
+                if (product.getName().toLowerCase().contains(searchText)) {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(getClass().getResource("/view/cards/order_card.fxml"));
+                    VBox cardBox = fxmlLoader.load();
+                    OrderCardController orderCardController = fxmlLoader.getController();
+                    orderCardController.setData(product);
+
+                    orderCardController.setOrderCardListener((productId, quantity) -> {
+                        System.out.println("Added to cart: " + productId + " | Quantity: " + quantity);
+                        addOrderDetails(productId, quantity);
+                    });
+
+                    if (column == 3) {
+                        column = 0;
+                        ++row;
+                    }
+
+                    placeOrderCardContainer.add(cardBox, column++, row);
+                    GridPane.setMargin(cardBox, new Insets(3));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -3,7 +3,6 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -54,29 +53,26 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </TableView>
-      <Region layoutX="627.0" layoutY="327.0" prefHeight="294.0" prefWidth="243.0" style="-fx-background-color: fceeff; -fx-background-radius: 10px;" />
-      <ImageView fitHeight="108.0" fitWidth="107.0" layoutX="695.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+      <Region layoutX="627.0" layoutY="293.0" prefHeight="328.0" prefWidth="243.0" style="-fx-background-color: fceeff; -fx-background-radius: 10px;" />
+      <ImageView fitHeight="83.0" fitWidth="89.0" layoutX="707.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../img/icon/orderList.png" />
          </image>
       </ImageView>
-      <Button layoutX="673.0" layoutY="561.0" mnemonicParsing="false" onAction="#btnReternedOnAction" prefHeight="27.0" prefWidth="152.0" style="-fx-background-color: purple; -fx-background-radius: 5px;" text="return Order" textFill="WHITE">
+      <Button layoutX="673.0" layoutY="577.0" mnemonicParsing="false" onAction="#btnReternedOnAction" prefHeight="27.0" prefWidth="152.0" style="-fx-background-color: red; -fx-background-radius: 5px;" text="return Order" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="651.0" layoutY="350.0" prefHeight="200.0" prefWidth="194.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <TableView fx:id="tblItems" prefHeight="200.0" prefWidth="178.0">
-                    <columns>
-                      <TableColumn fx:id="colItems" prefWidth="199.1999635696411" text="Items" />
-                    </columns>
-                  </TableView>
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
+      <TableView fx:id="tblItems" layoutX="649.0" layoutY="318.0" prefHeight="206.0" prefWidth="198.0">
+        <columns>
+          <TableColumn fx:id="colItems" prefWidth="199.1999635696411" text="Items" />
+        </columns>
+      </TableView>
+      <Button layoutX="673.0" layoutY="544.0" mnemonicParsing="false" onAction="#btnGetReportOnAction" prefHeight="27.0" prefWidth="152.0" style="-fx-background-color: green; -fx-background-radius: 5px;" text="get Report" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -5,6 +5,7 @@ import edu.icet.dto.Customer;
 import edu.icet.service.ServiceFactory;
 import edu.icet.service.custom.CustomerService;
 import edu.icet.util.ServiceType;
+import edu.icet.util.ValidationUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -180,6 +181,10 @@ public class CustomerFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        txtEmail.textProperty().addListener((observable, oldValue, newValue) -> {
+            autoCompleteEmail();
+        });
+
         ObservableList<String> titleList = FXCollections.observableArrayList();
         titleList.add("Mr");
         titleList.add("Miss");
@@ -188,5 +193,19 @@ public class CustomerFormController implements Initializable {
 
         lblID.setText(customerService.genarateId());
         loadCustomer();
+
+        txtEmail.textProperty().addListener((observableValue, s, t1) -> {
+
+        });
+    }
+
+    private void autoCompleteEmail() {
+        String text = txtEmail.getText();
+
+        // Check if the user has typed something but not completed "@gmail.com"
+        if (!text.isEmpty() && !text.contains("@")) {
+            txtEmail.setText(text + "@gmail.com");
+            txtEmail.positionCaret(text.length()); // Move cursor before '@' to allow editing
+        }
     }
 }

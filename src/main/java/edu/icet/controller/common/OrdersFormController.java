@@ -120,4 +120,7 @@ public class OrdersFormController implements Initializable {
             loadTable();
         }
     }
+
+    public void btnGetReportOnAction(ActionEvent actionEvent) {
+    }
 }

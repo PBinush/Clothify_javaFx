@@ -59,4 +59,13 @@ public class OrderDetailsServiceImpl implements OrderDetailsService {
         return sumOfPrice.toString();
     }
 
+//    @Override
+//    public Double getSumOfSalaryByDay(String date) {
+//        AtomicReference<Double> salary = new AtomicReference<>(0.0);
+//        orderDetailsDao.getOrderDetailsByOrderDate(date).forEach(
+//                entity -> salary.updateAndGet(v -> v + entity.getPrice())
+//        );
+//        return salary;
+//    }
+
 }

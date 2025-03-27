@@ -13,6 +13,7 @@ import org.hibernate.query.Query;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDaoImpl implements OrderDao {
@@ -118,4 +119,20 @@ public class OrderDaoImpl implements OrderDao {
             session.close();
         }
     }
+
+    @Override
+    public List<OrderEntity> getOrdersByEmployeeId(String id) {
+        Session session = HibernateUtil.getSession();
+        try {
+            Query<OrderEntity> query = session.createQuery("FROM OrderEntity WHERE employeeId = :employeeId", OrderEntity.class);
+            query.setParameter("employeeId", id);
+            return query.getResultList(); // Return list of orders
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>(); // Return empty list on failure
+        } finally {
+            session.close();
+        }
+    }
 }
+

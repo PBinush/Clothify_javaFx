@@ -131,4 +131,9 @@ public class OrderServiceImpl implements OrderService {
         });
         return sumOf.toString();
     }
+
+    @Override
+    public List<Order> getOrdersByEmployeeId(String id) {
+        return List.of();
+    }
 }

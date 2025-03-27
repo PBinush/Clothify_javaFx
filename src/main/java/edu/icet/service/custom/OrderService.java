@@ -11,4 +11,5 @@ public interface OrderService extends SuperService {
     List<Order> getAllOrders();
     String genarateId();
     String todayOrdersBalance();
+    List<Order> getOrdersByEmployeeId(String id);
 }
