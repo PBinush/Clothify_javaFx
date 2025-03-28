@@ -207,10 +207,6 @@ public class PlaceOrderFormController implements Initializable {
         }
     }
 
-    @FXML
-    void btnSearchOnAction(ActionEvent event) {
-    }
-
     public void btnAddCustomer(MouseEvent mouseEvent) {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource("../../../../view/common/customer_form.fxml"));

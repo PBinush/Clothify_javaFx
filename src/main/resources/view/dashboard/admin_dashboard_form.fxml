@@ -268,9 +268,9 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ImageView fx:id="imgProfile1" fitHeight="37.0" fitWidth="38.0" layoutX="1143.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgProfile1" fitHeight="37.0" fitWidth="38.0" layoutX="1143.0" layoutY="24.0" onMouseClicked="#btnProfileOnAction1" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/avotor/Employee-male.png" />
+            <Image url="@../../img/avotor/user_avotor.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -284,9 +284,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fx:id="imgProfile2" fitHeight="112.0" fitWidth="111.0" layoutX="93.0" layoutY="548.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imgProfile2" fitHeight="112.0" fitWidth="111.0" layoutX="93.0" layoutY="548.0" onMouseClicked="#btnProfileOnAction2" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../img/avotor/Employee-male.png" />
+            <Image url="@../../img/avotor/user_avotor.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

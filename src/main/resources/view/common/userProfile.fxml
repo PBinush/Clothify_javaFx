@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancProfile" prefHeight="546.0" prefWidth="367.0" style="-fx-background-color: purple;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.icet.controller.common.UserProfileController">
+   <children>
+      <ImageView fitHeight="146.0" fitWidth="194.0" layoutX="110.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/avotor/customer-male.png" />
+         </image>
+      </ImageView>
+      <VBox layoutY="192.0" prefHeight="285.0" prefWidth="367.0">
+         <children>
+            <HBox prefHeight="46.0" prefWidth="367.0">
+               <children>
+                  <Label text="First Name" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" top="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtFirstName">
+                     <HBox.margin>
+                        <Insets left="8.0" top="8.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="46.0" prefWidth="367.0">
+               <children>
+                  <Label text="Last Name" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" top="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtLastName">
+                     <HBox.margin>
+                        <Insets left="10.0" top="8.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="46.0" prefWidth="367.0">
+               <children>
+                  <Label text="UserName" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" top="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtUsername">
+                     <HBox.margin>
+                        <Insets left="10.0" top="8.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="46.0" prefWidth="367.0">
+               <children>
+                  <Label text="Email" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" top="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtEmail">
+                     <HBox.margin>
+                        <Insets left="48.0" top="8.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="46.0" prefWidth="367.0">
+               <children>
+                  <Label text="Salary" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" top="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtSalary">
+                     <HBox.margin>
+                        <Insets left="43.0" top="8.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox prefHeight="46.0" prefWidth="367.0">
+               <children>
+                  <Label text="Password" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="60.0" top="8.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="txtPassword">
+                     <HBox.margin>
+                        <Insets left="17.0" top="8.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button layoutX="122.0" layoutY="485.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="30.0" prefWidth="121.0" style="-fx-background-color: white; -fx-background-radius: 15px;" text="Update">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

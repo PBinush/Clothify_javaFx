@@ -99,13 +99,7 @@ public class CustomerFormController implements Initializable {
     }
 
     @FXML
-    void btnSearchOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        CustomerService serviceTpe = ServiceFactory.getInstance().getServiceTpe(ServiceType.CUSTOMERS);
         Customer customer = new Customer(
                 lblID.getText(),
                 cmbTitle.getValue().toString(),

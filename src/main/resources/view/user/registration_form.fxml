@@ -87,5 +87,10 @@
          </font>
       </RadioButton>
       <JFXTextField fx:id="txtSalary" focusColor="#9a26d4" layoutX="751.0" layoutY="416.0" prefHeight="36.0" prefWidth="247.0" promptText="Enter salary" style="-fx-background-color: f5e9fb;" unFocusColor="#3f1b51" />
+      <ImageView fx:id="imgBack" fitHeight="45.0" fitWidth="43.0" layoutX="555.0" layoutY="23.0" onMouseClicked="#btnBackOnAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/icon/back.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

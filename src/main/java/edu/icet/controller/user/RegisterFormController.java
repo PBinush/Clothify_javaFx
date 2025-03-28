@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -72,6 +73,15 @@ public class RegisterFormController {
             new Alert(Alert.AlertType.INFORMATION,"registration successfully").show();
         }else {
             new Alert(Alert.AlertType.ERROR).show();
+        }
+    }
+
+    public void btnBackOnAction(MouseEvent mouseEvent) {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource("../../../../view/user/login_form.fxml"));
+            ancLogin.getChildren().setAll(pane);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

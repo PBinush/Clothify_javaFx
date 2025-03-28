@@ -102,7 +102,6 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public boolean updateProduct(Product product) {
         ProductEntity map = new ModelMapper().map(product, ProductEntity.class);
-        map.setId(genarateId());
         if (productDao.save(map)){
             return true;
         }

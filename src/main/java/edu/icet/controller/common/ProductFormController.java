@@ -104,10 +104,6 @@ public class ProductFormController implements Initializable {
     }
 
     @FXML
-    void btnSearchOnAction(ActionEvent event) {
-    }
-
-    @FXML
     void btnUpdateOnAction(ActionEvent event) {
         String correctedPath = imgAvotor.getImage().getUrl().replace(" ", "%20");
         imgAvotor.setImage(new Image(correctedPath));
